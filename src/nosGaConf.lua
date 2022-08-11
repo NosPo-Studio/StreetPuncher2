@@ -2,7 +2,7 @@
 
 local nosGaConf = {
 	--=== startup ===--
-	defaultState = "example",
+	defaultState = "game",
 
 	--=== general ===--
 	targetFramerate = -1, --default is "20". set to "-1" for unlimited framerate (can cause in graphical issures).
@@ -82,11 +82,11 @@ local nosGaConf = {
 			
 			--=== core ===--
 			dbgpu = false,
-			re = true, 
+			re = false, 
 			uh = false,
 			eh = false,
-			GameObject = true,
-			RenderArea = true,
+			GameObject = false,
+			RenderArea = false,
 			Sprite = false,
 			uiHandler = false,
 			

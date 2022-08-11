@@ -201,10 +201,12 @@ if toLoad.states then
 	loadFiles(global.state, "states", nil, nil, nil, nil, nil, false)
 end
 if toLoad.textures then
-	loadFiles(global.texture, "textures", nil, "texturePacks/" .. global.conf.texturePack .. "/textures")
+	loadFiles(global.texture, "textures", nil, "texturePacks/" .. global.conf.texturePack .. "/textures", nil, true)
+	--[[ --only needed in experimental render engine.
 	if global.texturePack == nil or toLoad.reload then
 		global.texturePack = dofile("texturePacks/" .. global.conf.texturePack .. "/info.lua")
 	end
+	]]
 end
 if toLoad.animations then
 	loadFiles(global.animation, "animations", nil, "texturePacks/" .. global.conf.texturePack .. "/animations", false, false, global.ocal.load)

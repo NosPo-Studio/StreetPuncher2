@@ -60,6 +60,8 @@ SOFTWARE.
 	Bugs:
 		Animations:
 			Not working. Created animations are the GameObject.
+
+			Structured animation loading is not working.
 			
 		EH:
 			Worse performance/freeze on signal overflow.
@@ -89,7 +91,7 @@ SOFTWARE.
 			
 	*left over from ocCraft but still relevant somehow.
 ]]
-local version = "v0.6.2"
+local version = "v0.6.2d"
 
 --===== prog start =====--
 do

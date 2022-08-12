@@ -19,11 +19,16 @@
 
 local global = ...
 
-global.gameVersion = "v0.0.1"
+global.gameVersion = "v0.0.2"
 
 --===== shared vars =====--
 local game = {
-	
+	gameIsRunning = true,
+	winner = "",
+
+	blinkDelay = 1,
+	lastBlinkTime = global.computer.uptime(),
+	blinkStatus = true,
 }
 
 --===== local vars =====--
@@ -47,6 +52,7 @@ function game.init()
 			gameObjects = true,
 			textures = true,
 			animations = true,
+			globalStructured = true,
 		},
 	})
 
@@ -68,22 +74,24 @@ function game.init()
 	--=== mirror plyaer textures ===--
 	if not global.texture.player.head1_flipped then
 		local image = require("libs/thirdParty/image")
+		local flippedTextures = {}
+
 		for i, t in pairs(global.texture.player) do
-			print(i, t)
-			if type(t) == "table" and t.format == "pic" then
+			if type(t) == "table" and t.format == "pic" and not t.flippedHorizontaly then
 				local flippedTexture = image.flipHorizontally(t)
 				flippedTexture.format = "pic"
-				global.log(flippedTexture)
-				global.texture.player[i .. "_flipped"] = flippedTexture
+				flippedTexture.flippedHorizontaly = true
+				
+				flippedTextures[i .. "_flipped"] = flippedTexture
 			end
+		end
+		for i, t in pairs(flippedTextures) do 
+			global.texture.player[i] = t
 		end
 	end
 
-	--print(global.)
+	
 
-end
-
-function game.start()
 	global.clear()
 	
 	game.raMain = global.addRA({
@@ -104,7 +112,7 @@ function game.start()
     })
 
 	game.player2 = game.raMain:addGO("Player", {
-        posX = 60,
+        posX = 22,
         posY = 25,
         layer = 3,
         name = "player2",
@@ -119,6 +127,32 @@ function game.start()
         layer = 1,
         name = "player1",
     })
+
+	do --add GUI
+		local gui = global.gui
+		game.gui = gui.application()
+		local container = game.gui:addChild(gui.container(1, 1, 160, 30))
+		
+		game.lifeBar1 = container:addChild(gui.progressBar(3, 2, 50, 0x990000, 0x666666, 0xffffff, 50))
+		game.lifeBar2 = container:addChild(gui.progressBar(56, 2, 50, 0x990000, 0x666666, 0xffffff, 50))
+		
+		game.chargeBar1 = container:addChild(gui.progressBar(3, 4, 50, 0x000099, 0x666666, 0xffffff, 50))
+		game.chargeBar2 = container:addChild(gui.progressBar(56, 4, 50, 0x000099, 0x666666, 0xffffff, 50))
+
+
+
+		game.gui:draw(true)
+		game.gui:start()
+	end
+
+	game.bloodContainer = game.raMain:addGO("BloodContainer", {
+		layer = 5,
+	})
+
+end
+
+function game.start()
+	game.bloodContainer:bloodExplosion(50, 10)
 	
 	--===== debug =====--
 	
@@ -130,15 +164,35 @@ function game.start()
 end
 
 function game.update()	
-	
+	game.lifeBar1.value = game.player1.life
+	game.lifeBar2.value = game.player2.life
+	game.chargeBar1.value = game.player1.charge
+	game.chargeBar2.value = game.player2.charge
+
+	if game.gameIsRunning and game.player1.life <= 0 and game.player1.life <= 0 then
+		game.gameIsRunning = false
+
+		if game.player1.life <= 0 and game.player1.life <= 0 then
+			game.winner = "Tie!"
+		elseif game.player1.life <= 0 then
+			game.winner = game.player1.name
+		elseif game.player2.life <= 0 then
+			game.winner = game.player2.name
+		end
+	end
+
 end
 
 function game.draw()
 	
 end
 
+function game.ctrl_reset_key_down()
+	game.gameIsRunning = true
+end
+
 function game.stop()
-	
+	game.gui:stop()
 end
 
 return game

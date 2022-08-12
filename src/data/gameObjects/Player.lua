@@ -75,12 +75,35 @@ function GameObjectsTemplate.new(args)
 		this.hat = this.gameObject:addSprite({texture = global.texture.player.hat, x = 7, y = 0})
 	end
 
+
+	this.bloodJet = global.state.game.raMain:addGO("BloodJet", {
+		parent = this,
+		width = 5,
+		height = 1,
+		offsetX = 9,
+		offsetY = 5,
+		smokeRate = 0,
+		sideForceRandom = 10,
+	})
+
 	--=== conf ===--
 	this.hitFaceTime = .5
 	this.punchArmTime = .5
-	this.speed = 10
-	this.maxCharge = 100
-	this.chargePerSecond = 30
+	this.headLooseDelay = .1
+
+	this.bloodPunchAmountMultiplier = .2
+	this.bloodPunchForceMultiplier = .4
+	
+	this.bloodJetMultiplier = 50
+	this.bloodJetForce = 60
+	this.bloodJetTime = 1
+	this.sideForceRange = 20
+	this.upForceRange = 20
+
+	this.speed = 30
+	this.maxCharge = 100 --has to be 100
+	this.chargeMultiplier = 1
+	this.chargePerSecond = 50
 
 	this.width = 10
 	this.armRange = 10
@@ -90,37 +113,60 @@ function GameObjectsTemplate.new(args)
 
 
 	--=== runtime vars ===--
-	this.lastHitTime = uptime()
 	this.lookingLeft = false
 
 	this.punchStatus = 0 --0 == normal, 1 == chargin, 2 == punching
 	this.charge = 0
+
+	this.life = 100
+	this.actualSpeed = this.speed
 	
+	this.lastHitTime = uptime()
 	this.chargeStartTime = uptime()
 	this.punchTime = uptime()
+	this.deathTime = uptime()
+	this.bloodJetStartTime = uptime()
 	
 	--===== custom functions =====--
 	this.ctrl_test_key_down = function(this)
 		this:hit()
 	end
 
-	this.hit = function(this)
+	this.hit = function(this, charge)
 		this.lastHitTime = uptime()
+		this.life = this.life - charge * this.chargeMultiplier
+
+		if this.life <= 0 then
+			if this.lookingLeft then
+				this.head.texture = global.texture.player.head3_flipped
+			else
+				this.head.texture = global.texture.player.head3
+			end
+			this.deathTime = uptime()
+		end
 	end
 
 	this.left = function(this)
+		if this.life <= 0 and uptime() - this.bloodJetStartTime > this.bloodJetTime then
+			return true
+		end
+
 		if not this.lookingLeft then
 			this.arm:move(-2, 0)
 		end
-		this:move(-this.speed * global.dt, 0)
+		this:move(-this.actualSpeed * global.dt, 0)
 		this.lookingLeft = true
 		this.legs:play(-1)
 	end
 	this.right = function(this)
+		if this.life <= 0 and uptime() - this.bloodJetStartTime > this.bloodJetTime then
+			return true
+		end
+
 		if this.lookingLeft then
 			this.arm:move(2, 0)
 		end
-		this:move(this.speed * global.dt, 0)
+		this:move(this.actualSpeed * global.dt, 0)
 		this.lookingLeft = false
 		this.legs:play(1)
 	end
@@ -137,6 +183,9 @@ function GameObjectsTemplate.new(args)
 
 			do
 				local enemy
+				local posX, posY = this:getPos()
+				local enemyPosX
+				local fistPosX
 				
 				if this.playerID == 1 then
 					enemy = global.state.game.player2
@@ -144,9 +193,57 @@ function GameObjectsTemplate.new(args)
 					enemy = global.state.game.player1
 				end
 
-				
+				enemyPosX = enemy:getPos()
+
+				if this.lookingLeft then
+					fistPosX = posX + 5 - this.armRange
+				else
+					fistPosX = posX + 5 + this.armRange
+				end
+
+				if fistPosX >= enemyPosX and fistPosX <= enemyPosX + this.width then
+					local addedBloodForce = 0
+					local particleAmount = this.charge * this.bloodPunchAmountMultiplier
+
+					enemy:hit(math.min(this.charge, this.maxCharge))
+
+					if this.lookingLeft then
+						addedBloodForce = - this.charge * this.bloodPunchForceMultiplier
+					else
+						addedBloodForce = this.charge * this.bloodPunchForceMultiplier
+					end
+
+					global.sfx.explosion(global.state.game.bloodContainer, fistPosX + 5, posY +5, "Blood", particleAmount, 3, {rng = 100}, addedBloodForce)
+					global.sfx.explosion(global.state.game.bloodContainer, fistPosX + 5, posY +5, "Blood", particleAmount, 6, {rng = 100}, addedBloodForce)
+					global.sfx.explosion(global.state.game.bloodContainer, fistPosX + 5, posY +5, "Blood", particleAmount, 10, {rng = 100}, addedBloodForce)
+				end
 			end
 
+		end
+	end
+
+	this.reset = function(this)
+		local _, posY = this:getPos()
+		
+		this.life = 100
+		this.charge = 0
+		this.actualSpeed = this.speed
+
+		this.bloodJet.smokeRate = 0
+
+		if this.head.posY > 1000 then
+			this.head:move(0, -1000)
+		end
+		if this.hat and this.hat.posY > 1000 then
+			this.hat:move(0, -1000)
+		end
+		
+		if this.playerID == 1 then
+			this:moveTo(10, posY)
+			this.lookingLeft = false
+		else
+			this:moveTo(130, posY)
+			this.lookingLeft = true
 		end
 	end
 
@@ -163,11 +260,19 @@ function GameObjectsTemplate.new(args)
 	end
 
 	this.ctrl_player1_punch_key_down = function()
+		if this.life <= 0 then
+			return true
+		end
+		
 		if this.playerID == 1 then
 			this:startCharging()
 		end
 	end
 	this.ctrl_player1_punch_key_up = function()
+		if this.life <= 0 then
+			return true
+		end
+
 		if this.playerID == 1 then
 			this:punch()
 		end
@@ -185,14 +290,26 @@ function GameObjectsTemplate.new(args)
 	end
 
 	this.ctrl_player2_punch_key_down = function()
+		if this.life <= 0 then
+			return true
+		end
+
 		if this.playerID == 2 then
 			this:startCharging()
 		end
 	end
 	this.ctrl_player2_punch_key_up = function()
+		if this.life <= 0 then
+			return true
+		end
+		
 		if this.playerID == 2 then
 			this:punch()
 		end
+	end
+
+	this.ctrl_reset_key_down = function()
+		this:reset()
 	end
 
 	
@@ -206,17 +323,42 @@ function GameObjectsTemplate.new(args)
 	this.update = function(this, dt, ra) 
 		--global.log(args.name, this.charge)
 
-		if select(1, this:getLastPos()) == select(1, this:getPos()) then
+		if this.life <= 0 and uptime() - this.bloodJetStartTime > this.bloodJetTime then
 			this.legs:stop(1)
+		end
+
+		if this.life <= 0 and uptime() - this.deathTime > this.headLooseDelay then
+			local timeSinceJetStart = uptime() - this.bloodJetStartTime
+			local bloodMultiplier = (this.bloodJetTime - timeSinceJetStart) / this.bloodJetTime
+
+			if this.head.posY < 1000 then
+				this.head:move(0, 1000)
+				if this.hat then
+					this.hat:move(0, 1000)
+				end
+				this.bloodJetStartTime = uptime()
+			end
+
+			this.bloodJet.smokeRate = math.max(this.bloodJetMultiplier * bloodMultiplier, 0)
+			this.bloodJet.upForce = math.max(this.bloodJetForce * bloodMultiplier, 0)
+			this.bloodJet.sideForceRange = math.max(this.sideForceRange * bloodMultiplier, 0)
+			this.bloodJet.upForceRange = math.max(this.upForceRange * bloodMultiplier, 0)
+
+			this.actualSpeed = this.speed * bloodMultiplier
+		end
+
+		if select(1, this:getLastPos()) == select(1, this:getPos()) then
+			this.legs:stop()
 		end
 
 		if this.punchStatus == 2 and uptime() - this.punchTime > this.punchArmTime then
 			this.punchStatus = 0
+			this.charge = 0
 		end
 		if this.punchStatus == 1 then
-			this.charge = this.charge + this.chargePerSecond * global.dt
+			this.charge = math.min(this.charge + this.chargePerSecond * global.dt, this.maxCharge)
 		end
-		if this.punchStatus == 1 and this.charge > this.maxCharge then
+		if this.punchStatus == 1 and this.charge >= this.maxCharge then
 			this:punch()
 		end
 
@@ -240,22 +382,23 @@ function GameObjectsTemplate.new(args)
 			end
 		end
 
-
-		if uptime() - this.lastHitTime > this.hitFaceTime then
-			if this.lookingLeft then
-				this.head.texture = global.texture.player.head1_flipped
+		if this.life > 0 then
+			if uptime() - this.lastHitTime > this.hitFaceTime then
+				if this.lookingLeft then
+					this.head.texture = global.texture.player.head1_flipped
+				else
+					this.head.texture = global.texture.player.head1
+				end
 			else
-				this.head.texture = global.texture.player.head1
-			end
-		else
-			if this.lookingLeft then
-				this.head.texture = global.texture.player.head2_flipped
-			else
-				this.head.texture = global.texture.player.head2
+				if this.lookingLeft then
+					this.head.texture = global.texture.player.head2_flipped
+				else
+					this.head.texture = global.texture.player.head2
+				end
 			end
 		end
 
-		if this.playerID == 2 then
+		if this.life > 0 and this.playerID == 2 then
 			if this.lookingLeft then
 				this.hat.texture = global.texture.player.hat_flipped
 			else

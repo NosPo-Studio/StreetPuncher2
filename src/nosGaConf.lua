@@ -29,7 +29,7 @@ local nosGaConf = {
 	]]
 
 	useSmartMove = true,
-	useSmartCameraMove = true, --recommended in any render mode.
+	useSmartCameraMove = false, --recommended in any render mode.
 	useSmartOverlap = true, --[[at overlapping it only renders pixels that are overlapping. 
 		this is not always usefull, only if there are a lot of overlaping sprites.
 		may cause some graphical glitches sometimes. 
@@ -96,7 +96,7 @@ local nosGaConf = {
 			states = false,
 			textures = false,
 			animations = false,
-			parents = false,
+			parents = true,
 			gameObjects = true,
 			structuredGameObjects = false,
 			

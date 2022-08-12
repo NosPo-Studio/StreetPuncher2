@@ -236,7 +236,7 @@ function ocal.Animation.stop(this, frame, playTilEnd)
 		this.tmpHalt = true
 	else
 		this.speed = 0
-		this.frame = frame or 1
+		this.currentFrame = frame or this.currentFrame
 	end
 end
 

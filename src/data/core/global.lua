@@ -205,7 +205,7 @@ function global.loadData(target, dir, func, logFuncs, overwrite, subDirs, struct
 	logFuncs = logFuncs or {}
 	local print = logFuncs.log or global.log
 	local warn = logFuncs.warn or global.warn
-	local onError = logFuncs.error or global.error
+	local error = logFuncs.error or global.error
 	
 	subDirs = global.ut.parseArgs(subDirs, true)
 	
@@ -219,7 +219,7 @@ function global.loadData(target, dir, func, logFuncs, overwrite, subDirs, struct
 						target[string.sub(p, 0, #p -1)] = {structured = true}
 						global.loadData(target[string.sub(p, 0, #p -1)], dir .. "/" .. p, func, logFuncs, overwrite, subDirs, structured)
 					else
-						onError("[DLF]: Target already existing!: " .. p .. " :" .. tostring(target))
+						error("[DLF]: Target already existing!: " .. p .. " :" .. tostring(target))
 					end
 				else
 					global.loadData(target, dir .. "/" .. p, func, logFuncs, overwrite, subDirs, structured)
@@ -247,7 +247,7 @@ function global.loadData(target, dir, func, logFuncs, overwrite, subDirs, struct
 				
 				if global.isDev then
 					if suc == nil then
-						warn("[DLF] Failed to load file: " .. dir .. "/" .. file .. ": " .. tostring(err))
+						error("[DLF] Failed to load file: " .. dir .. "/" .. file .. ": " .. tostring(err))
 					else
 						print(debugString .. tostring(suc))
 					end

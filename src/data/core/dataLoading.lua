@@ -68,7 +68,7 @@ local function loadFiles(target, name, func, directPath, subDirs, structured, lo
 		elseif reload then
 			print("[DL]: Reloading data group: " .. name .. ".")
 		end
-		global.loadData(target, path, func, {log = print, warn = global.warn, error = print}, reload, subDirs, structured, loadFunc, initFile)
+		global.loadData(target, path, func, {log = print, warn = global.warn, error = global.error}, reload, subDirs, structured, loadFunc, initFile)
 		global.alreadyLoaded[path] = true
 		return true
 	else

@@ -3,12 +3,7 @@
 local conf = {
 	texturePack = "default",
 	
-	particles = 0,
-	
-	uiForegroundColor = 0xaaaaaa,
-	uiBackgroundColor = 0x666666,
-	
-	saveGame = "saveGame.lua",
+	particles = 1,
 	
 	colors = {
 		button = {

@@ -415,6 +415,17 @@ function GameObjectsTemplate.new(args)
 				this.hat.texture = global.texture.player.hat
 			end
 		end
+
+		if posX < -30 or posX > 190 then
+			if not this.easter then
+				local currentWorkingDir = global.shell.getWorkingDirectory()
+				this.easter = true
+				os.execute("cd data/sp1; ./startGame.lua")
+				global.shell.setWorkingDirectory(currentWorkingDir)
+			end
+		elseif posX > -30 and posX < 190 then
+			this.easter = false
+		end
 	end
 	
 	--[[Called every time the GameObject is drawed. 

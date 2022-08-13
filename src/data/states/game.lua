@@ -19,7 +19,7 @@
 
 local global = ...
 
-global.gameVersion = "v0.0.4"
+global.gameVersion = "v0.0.5"
 
 --===== shared vars =====--
 local game = {
@@ -143,8 +143,6 @@ function game.init()
 		game.chargeBar1 = container:addChild(gui.progressBar(13, 5, 64, 0x0055bb, 0x666666, 0xffffff, 50))
 		game.chargeBar2 = container:addChild(gui.progressBar(85, 5, 64, 0x0000bb, 0x666666, 0xffffff, 50))
 
-
-
 		game.gui:draw(true)
 		game.gui:start()
 	end
@@ -156,7 +154,7 @@ function game.init()
 end
 
 function game.start()
-	game.bloodContainer:bloodExplosion(50, 10)
+	--game.bloodContainer:bloodExplosion(50, 10)
 	
 	--===== debug =====--
 	
@@ -191,6 +189,11 @@ end
 
 function game.draw()
 	
+end
+
+function game.ctrl_test_key_down()
+	global.realGPU.setBackground(0x0)
+	global.realGPU.fill(0, 0, 160, 50, " ")
 end
 
 function game.ctrl_reset_key_down()

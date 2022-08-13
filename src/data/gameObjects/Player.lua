@@ -107,8 +107,8 @@ function GameObjectsTemplate.new(args)
 
 	this.speed = 30
 	this.maxCharge = 100 --has to be 100
-	this.chargeMultiplier = 1
-	this.chargePerSecond = 20
+	this.chargeMultiplier = .5
+	this.chargePerSecond = 70
 
 	this.width = 10
 	this.armRange = 10
@@ -125,10 +125,10 @@ function GameObjectsTemplate.new(args)
 	this.punchStatus = 0 --0 == normal, 1 == chargin, 2 == punching
 	this.charge = 0
 
-	this.life = 100
+	this.life = 100 --has to be 100
 	this.actualSpeed = this.speed
 	
-	this.lastHitTime = uptime()
+	this.lastHitTime = 0
 	this.chargeStartTime = uptime()
 	this.punchTime = uptime()
 	this.deathTime = uptime()
@@ -416,11 +416,11 @@ function GameObjectsTemplate.new(args)
 			end
 		end
 
-		if posX < -30 or posX > 190 then
+		if posX < -300 or posX > 490 then
 			if not this.easter then
 				local currentWorkingDir = global.shell.getWorkingDirectory()
 				this.easter = true
-				os.execute("cd data/sp1; ./startGame.lua")
+				os.execute("cd data/sf1; ./startGame.lua")
 				global.shell.setWorkingDirectory(currentWorkingDir)
 			end
 		elseif posX > -30 and posX < 190 then

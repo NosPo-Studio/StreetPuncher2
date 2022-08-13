@@ -40,7 +40,7 @@ function GameObjectsTemplate.new(args)
 	args.sizeX = 24
 	args.sizeY = 19
 	args.components = { --Define the GameObjects components.
-		{"CopyArea",
+		{"ClearArea",
 			x = 4,
 			y = 0,
 			sizeX = 13,
@@ -55,7 +55,6 @@ function GameObjectsTemplate.new(args)
 	}
 	args.usesAnimation = true
 	args.noSizeArea = true
-	args.deco = true
 	
 	--===== default stuff =====--
 	--Inheritance from the GameObject main class.
@@ -63,17 +62,13 @@ function GameObjectsTemplate.new(args)
 	this = setmetatable(this, GameObjectsTemplate) 
 	
 	--===== init =====--
-	this.bloodContainer = global.state.game.raMain:addGO("BloodContainer", {
-		layer = 5,
-	})
-
 	--=== textures / animations ===--
 	this.head = this.gameObject:addSprite({texture = global.texture.player.head1, x = 8, y = 1})
 	this.body = this.gameObject:addSprite({texture = global.texture.player.body, x = 7, y = 6})
 	this.arm = this.gameObject:addSprite({texture = global.texture.player.arm1, x = 11, y = 6})
 
 	
-	this.legs = this.gameObject:addSprite({texture = global.animation.legs, x = 7, y = 13})
+	this.legs = this.gameObject:addSprite({texture = global.animation.legs, x = 7, y = 14})
 	this.legs:stop()
 
 	if args.id == 2 then
@@ -94,21 +89,21 @@ function GameObjectsTemplate.new(args)
 	--=== conf ===--
 	this.hitFaceTime = .5
 	this.punchArmTime = .5
-	this.headLooseDelay = .5
+	this.headLooseDelay = .1
 	
 	this.bloodPunchAmountMultiplier = .2
 	this.bloodPunchForceMultiplier = .4
 	
-	this.bloodJetMultiplier = 100
+	this.bloodJetMultiplier = 50
 	this.bloodJetForce = 60
-	this.bloodJetTime = 6
+	this.bloodJetTime = 1
 	this.sideForceRange = 20
 	this.upForceRange = 20
 
 	this.speed = 30
 	this.maxCharge = 100 --has to be 100
 	this.chargeMultiplier = 1
-	this.chargePerSecond = 20
+	this.chargePerSecond = 5
 
 	this.width = 10
 	this.armRange = 10
@@ -157,6 +152,10 @@ function GameObjectsTemplate.new(args)
 		if this.life <= 0 and uptime() - this.bloodJetStartTime > this.bloodJetTime then
 			return true
 		end
+
+		if not this.lookingLeft then
+			this.arm:move(-1, 0)
+		end
 		this:move(-this.actualSpeed * global.dt, 0)
 		this.lookingLeft = true
 		this.legs:play(-1)
@@ -164,6 +163,10 @@ function GameObjectsTemplate.new(args)
 	this.right = function(this)
 		if this.life <= 0 and uptime() - this.bloodJetStartTime > this.bloodJetTime then
 			return true
+		end
+
+		if this.lookingLeft then
+			this.arm:move(1, 0)
 		end
 		this:move(this.actualSpeed * global.dt, 0)
 		this.lookingLeft = false
@@ -173,11 +176,21 @@ function GameObjectsTemplate.new(args)
 	this.startCharging = function(this)
 		this.charge = 0
 		this.punchStatus = 1
+		if this.lookingLeft then
+			this.arm:move(1, 0)
+		else
+			this.arm:move(-7, 0)
+		end
 		this.chargeStartTime = uptime()
 	end
 	this.punch = function(this)
 		if this.punchStatus == 1 then
 			this.punchStatus = 2
+			if this.lookingLeft then
+				this.arm:move(-11, 0)
+			else
+				this.arm:move(7, 0)
+			end
 			this.punchTime = uptime()
 
 			do
@@ -195,9 +208,9 @@ function GameObjectsTemplate.new(args)
 				enemyPosX = enemy:getPos()
 
 				if this.lookingLeft then
-					fistPosX = posX + 4 - this.armRange
+					fistPosX = posX + 5 - this.armRange
 				else
-					fistPosX = posX + 6 + this.armRange
+					fistPosX = posX + 5 + this.armRange
 				end
 
 				if fistPosX >= enemyPosX and fistPosX <= enemyPosX + this.width then
@@ -212,9 +225,9 @@ function GameObjectsTemplate.new(args)
 						addedBloodForce = this.charge * this.bloodPunchForceMultiplier
 					end
 
-					global.sfx.explosion(this.bloodContainer, fistPosX + 5, posY +5, "Blood", particleAmount, 3, {rng = 100}, addedBloodForce)
-					global.sfx.explosion(this.bloodContainer, fistPosX + 5, posY +5, "Blood", particleAmount, 6, {rng = 100}, addedBloodForce)
-					global.sfx.explosion(this.bloodContainer, fistPosX + 5, posY +5, "Blood", particleAmount, 10, {rng = 100}, addedBloodForce)
+					global.sfx.explosion(global.state.game.bloodContainer, fistPosX + 5, posY +5, "Blood", particleAmount, 3, {rng = 100}, addedBloodForce)
+					global.sfx.explosion(global.state.game.bloodContainer, fistPosX + 5, posY +5, "Blood", particleAmount, 6, {rng = 100}, addedBloodForce)
+					global.sfx.explosion(global.state.game.bloodContainer, fistPosX + 5, posY +5, "Blood", particleAmount, 10, {rng = 100}, addedBloodForce)
 				end
 			end
 
@@ -240,9 +253,17 @@ function GameObjectsTemplate.new(args)
 		if this.playerID == 1 then
 			this:moveTo(10, posY)
 
+			if this.lookingLeft then
+				this.arm:move(2, 0)
+			end
+
 			this.lookingLeft = false
 		else
 			this:moveTo(130, posY)
+
+			if not this.lookingLeft then
+				this.arm:move(-2, 0)
+			end
 
 			this.lookingLeft = true
 		end
@@ -324,8 +345,6 @@ function GameObjectsTemplate.new(args)
 	this.update = function(this, dt, ra) 
 		--global.log(args.name, this.charge)
 
-		local posX, posY = this:getPos()
-
 		if this.life <= 0 and uptime() - this.bloodJetStartTime > this.bloodJetTime then
 			this.legs:stop(1)
 		end
@@ -356,6 +375,9 @@ function GameObjectsTemplate.new(args)
 
 		if this.punchStatus == 2 and uptime() - this.punchTime > this.punchArmTime then
 			this.punchStatus = 0
+			if this.lookingLeft then
+				this.arm:move(10, 0)
+			end
 			this.charge = 0
 		end
 		if this.punchStatus == 1 then
@@ -365,30 +387,23 @@ function GameObjectsTemplate.new(args)
 			this:punch()
 		end
 
-
 		if this.punchStatus == 0 then
 			if this.lookingLeft then
 				this.arm.texture = global.texture.player.arm1_flipped
-				this.arm:moveTo(posX + 10, posY + 6)
 			else
 				this.arm.texture = global.texture.player.arm1
-				this.arm:moveTo(posX + 11, posY + 6)
 			end
 		elseif this.punchStatus == 1 then
 			if this.lookingLeft then
 				this.arm.texture = global.texture.player.arm2_flipped
-				this.arm:moveTo(posX + 11, posY + 6)
 			else
 				this.arm.texture = global.texture.player.arm2
-				this.arm:moveTo(posX + 4, posY + 6)
 			end
 		elseif this.punchStatus == 2 then
 			if this.lookingLeft then
 				this.arm.texture = global.texture.player.arm3_flipped
-				this.arm:moveTo(posX, posY + 6)
 			else
 				this.arm.texture = global.texture.player.arm3
-				this.arm:moveTo(posX + 11, posY + 6)
 			end
 		end
 

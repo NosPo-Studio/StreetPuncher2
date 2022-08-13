@@ -29,6 +29,7 @@ end
 
 --local aliaces 
 local uptime = global.computer.uptime
+local game = global.state.game
 
 
 --Calles on the bject creation of the class. Here you define/initiate the class.
@@ -37,18 +38,27 @@ function GameObjectsTemplate.new(args)
 	--Take given GameObject args if present and prevents it from being nil if not.
 	args = args or {} 
 
-	args.sizeX = 160
-	args.sizeY = 50
+	args.sizeX = 100
+	args.sizeY = 100
 	args.components = { --Define the GameObjects components.
-		{"Sprite", 
+		{"ClearArea",
+			x = 4,
+			y = 0,
+			sizeX = 13,
+			sizeY = 17,
+		},
+		--{"Sprite", texture = global.texture.player.head1, x = 7, y = 1},
+		{"Sprite", texture = global.texture.player.body, x = 4, y = 1},
+		--{"Sprite", texture = global.texture.player.arm1, x = 2, y = 0},
+		--[[{"Sprite", 
 			x = 0, 
 			y = 0, 
 			--texture = "exampleTexture",
-			texture = global.texture.background,
-		},
+			texture = global.texture.player.head1,
+		},]]
 	}
-	args.usesAnimation = false
-	args.deco = true
+	args.usesAnimation = true
+	args.noSizeArea = true
 	
 	--===== default stuff =====--
 	--Inheritance from the GameObject main class.
@@ -56,6 +66,28 @@ function GameObjectsTemplate.new(args)
 	this = setmetatable(this, GameObjectsTemplate) 
 	
 	--===== init =====--
+	game = global.state.game
+
+	--this.head = this.gameObject:addSprite({texture = global.texture.player.head1, x = 7, y = 1})
+	--this.body = this.gameObject:addSprite({texture = global.texture.player.body, x = 4, y = 0})
+	--this.arm = this.gameObject:addSprite({texture = global.texture.player.arm1, x = 2, y = 0})
+
+	
+	--this.legs = this.gameObject:addSprite({texture = global.animation.legs, x = 6, y = 14})
+	--this.legs:stop()
+	
+	
+	--=== conf ===--
+
+	--=== runtime vars ===--
+	
+	--===== custom functions =====--
+	this.ctrl_player1_left_key_pressed = function()
+		this:move(-1, 0)
+	end
+	this.ctrl_player1_right_key_pressed = function()
+		this:move(1, 0)
+	end
 	
 	--===== default functions =====--
 	--Called when this GameObject is added to a RenderArea.
@@ -65,14 +97,14 @@ function GameObjectsTemplate.new(args)
 	
 	--Called up to once a frame.
 	this.update = function(this, dt, ra) 
-
+		
 	end
 	
 	--[[Called every time the GameObject is drawed. 
 		That can happen multiple times a frame if the GameObject is visible in multiple RenderAreas.
 	]]
 	this.draw = function(this) 
-		
+
 	end
 	
 	--[[Called every time the GameObject graphics are removed from the screen. 
@@ -84,7 +116,6 @@ function GameObjectsTemplate.new(args)
 	
 	--Called when this GameObject is removed from a RenderArea.
 	this.stop = function(this) 
-
 	end
 	
 	return this

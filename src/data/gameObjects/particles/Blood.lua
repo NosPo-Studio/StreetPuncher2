@@ -77,15 +77,12 @@ function Smoke.new(args)
 		if this.stillAttached == 0 then
 			this.gameObject:detach()
 			
-			--[[
-			if this.defaultParticleContainer ~= nil then
-				local x, y = this.gameObject:getPos()
-				this.defaultParticleContainer:addParticle("Blood", x, y, {dpc = this.defaultParticleContainer, clt = this.lifeTime})
-				this:destroy()
-			end
-			]]
 		elseif this.stillAttached == 1 then
 			this.stillAttached = 0
+		end
+
+		if select(2, this.gameObject:getPos()) > 50 then
+			this:destroy()
 		end
 		
 	end

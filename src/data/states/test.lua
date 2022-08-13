@@ -19,12 +19,8 @@
 
 local global = ...
 
-global.gameVersion = "v0.0.3"
-
 --===== shared vars =====--
-local game = {
-	gameIsRunning = false,
-	winner = "UNKNOWN",
+local test = {
 }
 
 --===== local vars =====--
@@ -35,8 +31,8 @@ local function print(...)
 end
 
 --===== shared functions =====--
-function game.init()
-	print("[game]: Start init.")
+function test.init()
+	print("[test]: Start init.")
 	
 	--===== debug =====--
 	
@@ -45,7 +41,7 @@ function game.init()
 	global.load({
 		toLoad = {
 			parents = true,
-			gameObjects = true,
+			testObjects = true,
 			textures = true,
 			animations = true,
 			globalStructured = true,
@@ -86,10 +82,10 @@ function game.init()
 	end
 
 	
-	--=== init game ===--
+	--=== init test ===--
 	global.clear()
 	
-	game.raMain = global.addRA({
+	test.raMain = global.addRA({
 		posX = 1, 
 		posY = 1, 
 		sizeX = global.resX, 
@@ -98,65 +94,40 @@ function game.init()
 		drawBorders = true,
 	})
 	
-    game.player1 = game.raMain:addGO("Player", {
+    test.test = test.raMain:addGO("Test", {
+        posX = 10,
+        posY = 25,
+        layer = 5,
+        name = "test1",
+		id = 1,
+    })
+	test.test2 = test.raMain:addGO("Test2", {
         posX = 10,
         posY = 25,
         layer = 3,
-        name = "Player1",
+        name = "test2",
+		id = 1,
+    })
+	test.test2 = test.raMain:addGO("Test3", {
+        posX = 10,
+        posY = 25,
+        layer = 4,
+        name = "test3",
 		id = 1,
     })
 
-	game.player2 = game.raMain:addGO("Player", {
-        posX = 52,
-        posY = 25,
-        layer = 3,
-        name = "Player2",
-		id = 2,
-    })
 	
-	game.background = game.raMain:addGO("Background", {
+	test.background = test.raMain:addGO("Background", {
         posX = 0,
         posY = 0,
         layer = 1,
         name = "background",
     })
-
 	
-	game.overlay = game.raMain:addGO("GameOverOverlay", {
-        posX = 64,
-        posY = 8,
-        layer = 5,
-        name = "overlay",
-    })
-	
-	
-	
-
-	do --add GUI
-		local gui = global.gui
-		game.gui = gui.application()
-		local container = game.gui:addChild(gui.container(1, 1, 160, 30))
-		
-		game.lifeBar1 = container:addChild(gui.progressBar(13, 3, 64, 0x990000, 0x666666, 0xffffff, 50))
-		game.lifeBar2 = container:addChild(gui.progressBar(85, 3, 64, 0x990000, 0x666666, 0xffffff, 50))
-		
-		game.chargeBar1 = container:addChild(gui.progressBar(13, 5, 64, 0x0055bb, 0x666666, 0xffffff, 50))
-		game.chargeBar2 = container:addChild(gui.progressBar(85, 5, 64, 0x0000bb, 0x666666, 0xffffff, 50))
-
-
-
-		game.gui:draw(true)
-		game.gui:start()
-	end
-
-	game.bloodContainer = game.raMain:addGO("BloodContainer", {
-		layer = 5,
-	})
 
 end
 
-function game.start()
-	game.bloodContainer:bloodExplosion(50, 10)
+function test.start()
 	
 	--===== debug =====--
 	
@@ -167,47 +138,24 @@ function game.start()
 	
 end
 
-function game.update()
-	
-	game.lifeBar1.value = game.player1.life
-	game.lifeBar2.value = game.player2.life
-	game.chargeBar1.value = game.player1.charge
-	game.chargeBar2.value = game.player2.charge
-
-	if game.gameIsRunning then
-		if game.player1.life <= 0 or game.player2.life <= 0 then
-			game.gameIsRunning = false
-			
-			if game.player1.life <= 0 and game.player2.life <= 0 then
-				game.winner = "No one"
-			elseif game.player1.life <= 0 then
-				game.winner = game.player1.name
-			elseif game.player2.life <= 0 then
-				game.winner = game.player2.name
-			end
-		end
-	end
-end
-
-function game.draw()
+function test.update()
 	
 end
 
-function game.ctrl_reset_key_down()
-	game.gameIsRunning = true
+function test.draw()
+	global.db.drawImage(50, 10, global.texture.player.head1)
+	global.db.drawImage(45, 10, global.texture.player.body)
+end
+
+function test.ctrl_reset_key_down()
 	
-	--quick and dirty bug fix
-	game.player1.life = 100
-	game.player2.life = 100
-
-	game.raMain:rerenderAll()
 end
 
-function game.stop()
-	game.gui:stop()
+function test.stop()
+	
 end
 
-return game
+return test
 
 
 

@@ -13,4 +13,5 @@ return function(image, color) --Probably only working with OCIF6 optimized dithe
 			image[5][i] = 1
 		end
 	end
+	return image
 end

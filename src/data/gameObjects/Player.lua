@@ -94,7 +94,7 @@ function GameObjectsTemplate.new(args)
 	--=== conf ===--
 	this.hitFaceTime = .5
 	this.punchArmTime = .5
-	this.headLooseDelay = .5
+	this.headLooseDelay = 0
 	
 	this.bloodPunchAmountMultiplier = .2
 	this.bloodPunchForceMultiplier = .4
@@ -212,9 +212,9 @@ function GameObjectsTemplate.new(args)
 						addedBloodForce = this.charge * this.bloodPunchForceMultiplier
 					end
 
-					global.sfx.explosion(this.bloodContainer, fistPosX + 5, posY +5, "Blood", particleAmount, 3, {rng = 100}, addedBloodForce)
-					global.sfx.explosion(this.bloodContainer, fistPosX + 5, posY +5, "Blood", particleAmount, 6, {rng = 100}, addedBloodForce)
-					global.sfx.explosion(this.bloodContainer, fistPosX + 5, posY +5, "Blood", particleAmount, 10, {rng = 100}, addedBloodForce)
+					global.sfx.explosion(this.bloodContainer, fistPosX + 5, posY +5, "Blood", particleAmount, 3, {rng = 100}, addedBloodForce * .2)
+					global.sfx.explosion(this.bloodContainer, fistPosX + 5, posY +5, "Blood", particleAmount, 6, {rng = 100}, addedBloodForce * .5)
+					global.sfx.explosion(this.bloodContainer, fistPosX + 5, posY +5, "Blood", particleAmount, 10, {rng = 100}, addedBloodForce * .7)
 				end
 			end
 

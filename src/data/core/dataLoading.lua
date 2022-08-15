@@ -23,7 +23,9 @@ local global = args.global
 local toLoad = args.toLoad
 local reload = args.reload
 local loadMods = args.loadMods
-local print = args.print or function(...) global.log(...) end
+local print = args.print or global.log
+local warn = args.warn or global.warn
+local error = args.error or global.error
 
 local baseDir = ""
 
@@ -68,7 +70,7 @@ local function loadFiles(target, name, func, directPath, subDirs, structured, lo
 		elseif reload then
 			print("[DL]: Reloading data group: " .. name .. ".")
 		end
-		global.loadData(target, path, func, {log = print, warn = global.warn, error = global.error}, reload, subDirs, structured, loadFunc, initFile)
+		global.loadData(target, path, func, {log = print, warn = warn, error = error}, reload, subDirs, structured, loadFunc, initFile)
 		global.alreadyLoaded[path] = true
 		return true
 	else

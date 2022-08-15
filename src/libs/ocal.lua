@@ -82,7 +82,7 @@ function ocal.initiate(args)
 	return this
 end
 
-function ocal.load(path)
+function ocal.load(path, args)
 	if string.sub(path, 0, 1) ~= "/" then
 		path =shell.getWorkingDirectory() .. "/" .. path .. "/"
 	end
@@ -98,8 +98,13 @@ function ocal.load(path)
 	
 	for file in fs.list(path .. "frames") do
 		local p, name, ending = ut.seperatePath(file)
+		local loadedImage = image.load(path .. "frames/" .. file)
+
+		if args.transparencyFunction ~= nil and args.transparencyColor ~= nil and args.transparencyColor ~= false then
+			loadedImage = args.transparencyFunction(loadedImage, args.transparencyColor)
+		end
 		
-		animation.frames[tonumber(name)] = image.load(path .. "frames/" .. file)
+		animation.frames[tonumber(name)] = loadedImage
 	end
 	
 	return animation

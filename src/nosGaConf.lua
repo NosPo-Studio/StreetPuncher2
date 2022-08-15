@@ -27,6 +27,7 @@ local nosGaConf = {
 		In the most cases using it causes in a big graphic performance boost but on cost of the memory usage.
 		More informations on github.
 	]]
+	transparencyColor = 0x00ffff, --this color will be made transparent. if false auto transparency is disabled. works only for .pic textures.
 
 	useSmartMove = true,
 	useSmartCameraMove = false, --recommended in any render mode.

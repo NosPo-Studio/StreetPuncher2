@@ -129,8 +129,16 @@ func(global)
 --=== load data ===--
 do --load global data.
 	print("[INIT]: Loading global.")
-	local path = "/data/global"
-	global.loadData(global, path, nil, {log = print, warn = print, error = print})
+	global.loadData(global, "/data/global", nil, {log = print, warn = print, error = print})
+	print("[INIT]: Loading states.")
+	global.loadData(global.state, "/data/states", nil, {log = print, warn = print, error = print})
+
+	if global.state[global.conf.defaultState] == nil then
+		local _, err = loadfile("data/states/" .. global.conf.defaultState .. ".lua")
+		print("[INIT]: Default state cant be loaded: " .. err)
+		global.error("[INIT]: Default state cant be loaded: " .. err)
+		os.exit(1)
+	end
 end
 
 if global.isDev then
@@ -140,7 +148,6 @@ end
 global.load({
 	toLoad = {
 		conf = true,
-		states = true,
 		GameObject = true,
 		RenderArea = true,
 		Sprite = true,

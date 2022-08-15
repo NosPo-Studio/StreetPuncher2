@@ -159,7 +159,9 @@ function global.debug.renderDebugInformations()
 	if global.conf.showDebug then
 		global.gpu.setForeground(0xaaaaaa)
 		global.gpu.setBackground(0x333333)
-		global.gpu.set(1, global.debugDisplayPosY, "NosGa Engine: " .. global.version .. 
+		global.gpu.set(1, global.debugDisplayPosY, 
+			"NosGa Engine: " .. global.version .. 
+			" | " .. (global.gameName or "Game") .. ": " .. (global.gameVersion or "?") ..
 			" | RAM: " .. tostring(math.floor(100 - (freeMemory() / totalMemory() * 100) +.5)) .. "%" ..
 			" | VRAM: " .. tostring(math.floor(100 - (gpuFreeMemory() / gpuTotalMemory() * 100) +.5)) .. "%" ..
 			" | FPS: " .. tostring(math.floor((global.fps) +.5) .. 
@@ -234,12 +236,15 @@ function global.loadData(target, dir, func, logFuncs, overwrite, subDirs, struct
 				
 				local suc, err 
 				if loadFunc ~= nil then
-					suc, err = loadFunc(path .. file)
+					suc, err = loadFunc(path .. file, {transparencyColor = global.conf.transparencyColor, transparencyFunction = global.makeImageTransparent})
 				elseif ending == ".pic" then
 					suc, err = global.image.load(path .. file)
 					if suc ~= false then
 						suc.format = "pic"
 						suc.resX, suc.resY = suc[1], suc[2]
+						if global.conf.transparencyColor ~= false then
+							global.makeImageTransparent(suc, global.conf.transparencyColor)
+						end
 					end
 				else
 					suc, err = loadfile(path .. file)
@@ -247,6 +252,7 @@ function global.loadData(target, dir, func, logFuncs, overwrite, subDirs, struct
 				
 				if global.isDev then
 					if suc == nil then
+						print(error, print)
 						error("[DLF] Failed to load file: " .. dir .. "/" .. file .. ": " .. tostring(err))
 					else
 						print(debugString .. tostring(suc))

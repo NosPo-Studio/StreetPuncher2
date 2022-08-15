@@ -19,7 +19,8 @@
 
 local global = ...
 
-global.gameVersion = "v0.0.5"
+global.gameName = "StreetPuncher2"
+global.gameVersion = "v0.0.6"
 
 --===== shared vars =====--
 local game = {
@@ -28,6 +29,7 @@ local game = {
 }
 
 --===== local vars =====--
+local unicode = require("unicode")
 
 --===== local functions =====--
 local function print(...)
@@ -53,18 +55,6 @@ function game.init()
 	})
 
 	--=== make textures transparent ===--
-	for i, t in pairs(global.texture.player) do
-		if type(t) == "table" and t.format == "pic" then
-			if t.format == "pic" then
-				global.makeImageTransparent(t, 0x00ffff)
-			end
-		end
-	end
-	for i, t in pairs(global.animation.legs.frames) do
-		if type(t) == "table" then
-			global.makeImageTransparent(t, 0x00ffff)
-		end
-	end
 
 	--=== mirror plyaer textures ===--
 	if not global.texture.player.head1_flipped then
@@ -155,6 +145,9 @@ end
 
 function game.start()
 	--game.bloodContainer:bloodExplosion(50, 10)
+
+	game.player1:reset()
+	game.player2:reset()
 	
 	--===== debug =====--
 	
@@ -188,7 +181,7 @@ function game.update()
 end
 
 function game.draw()
-	
+	global.gpu.set(global.resX / 2 - unicode.len(global.gameVersion) / 2 +1, 1, global.gameVersion)
 end
 
 function game.ctrl_test_key_down()

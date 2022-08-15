@@ -92,12 +92,12 @@ local nosGaConf = {
 			uiHandler = false,
 			
 			--=== data groups ===--
-			global = false, --global dir.
+			global = true, --global dir.
 			structuredGlobal = false,
 			states = false,
 			textures = false,
 			animations = false,
-			parents = true,
+			parents = false,
 			gameObjects = true,
 			structuredGameObjects = false,
 			

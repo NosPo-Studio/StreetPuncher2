@@ -18,7 +18,11 @@
 --[[UsefullThings libary
 	
 ]]
-local UT = {version = "v0.7.2"}
+local UT = {version = "v0.8.6"}
+
+function UT.getVersion()
+	return UT.version
+end
 
 function UT.parseArgs(...) --returns the first non nil parameter.
 	for _, a in pairs({...}) do
@@ -119,10 +123,13 @@ function UT.tostring(var, lineBreak, indent, done, internalRun)
 			end
 			if type (value) == "table" and not done [value] then
 				done [value] = true
+				if type(key) == "string" then
+					key = "'" .. key .. "'"
+				end
 				if lineBreak then
-					table.insert(sb, "[" .. key .. "] = {" .. lbString);
+					table.insert(sb, "[" .. tostring(key) .. "] = {" .. lbString);
 				else
-					table.insert(sb, "[" .. key .. "] = {");
+					table.insert(sb, "[" .. tostring(key) .. "] = {");
 				end
 				table.insert(sb, UT.tostring(value, lineBreak, indent + 2, done, true))
 				if lineBreak then
@@ -133,12 +140,23 @@ function UT.tostring(var, lineBreak, indent, done, internalRun)
 				end
 			elseif "number" == type(key) then
 				table.insert(sb, string.format("[%s] = ", tostring(key)))
-				table.insert(sb, string.format("\"%s\"," .. lbString, tostring(value)))
+				if type(value) ~= "boolean" and type(value) ~= "number" then
+					table.insert(sb, string.format("\"%s\"," .. lbString, tostring(value)))
+				else
+					table.insert(sb, string.format("%s," .. lbString, tostring(value)))
+				end
 			else
 				if sb[#sb] == "}," then
 					table.insert(sb, " ")
 				end
-				table.insert(sb, string.format("%s = \"%s\"," .. lbString, "[" .. tostring (key) .. "]", tostring(value)))
+				if type(key) == "string" then
+					key = "'" .. key .. "'"
+				end
+				if type(value) ~= "boolean" and type(value) ~= "number" then
+					table.insert(sb, string.format("%s = \"%s\"," .. lbString, "[" .. tostring (key) .. "]", tostring(value)))
+				else
+					table.insert(sb, string.format("%s = %s," .. lbString, "[" .. tostring (key) .. "]", tostring(value)))
+				end
 			end
 		end
 		if not internalRun then
@@ -152,6 +170,32 @@ function UT.tostring(var, lineBreak, indent, done, internalRun)
 	else
 		return var .. lbString
 	end
+end
+
+function UT.readFile(path)
+	local file, err = io.open(path, "rb")
+	
+	if file == nil then 
+		return nil, err 
+	else
+		local fileContent = file:read("*all")
+		file:close()
+		return fileContent
+	end
+end
+
+do --randomString: Source: https://gist.github.com/haggen/2fd643ea9a261fea2094
+	local charset = {}  do -- [0-9a-zA-Z]
+		for c = 48, 57  do table.insert(charset, string.char(c)) end
+		for c = 65, 90  do table.insert(charset, string.char(c)) end
+		for c = 97, 122 do table.insert(charset, string.char(c)) end
+	end
+	local function randomString(length)
+		if not length or length <= 0 then return '' end
+		math.randomseed(os.clock()^5)
+		return randomString(length - 1) .. charset[math.random(1, #charset)]
+	end
+	UT.randomString = randomString
 end
 
 return UT

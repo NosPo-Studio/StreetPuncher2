@@ -45,22 +45,10 @@ function test.init()
 			textures = true,
 			animations = true,
 			globalStructured = true,
+			gameObjects = true,
 		},
 	})
 
-	--=== make textures transparent ===--
-	for i, t in pairs(global.texture.player) do
-		if type(t) == "table" and t.format == "pic" then
-			if t.format == "pic" then
-				global.makeImageTransparent(t, 0x00ffff)
-			end
-		end
-	end
-	for i, t in pairs(global.animation.legs.frames) do
-		if type(t) == "table" then
-			global.makeImageTransparent(t, 0x00ffff)
-		end
-	end
 
 	--=== mirror plyaer textures ===--
 	if not global.texture.player.head1_flipped then
@@ -84,6 +72,9 @@ function test.init()
 	
 	--=== init test ===--
 	global.clear()
+
+	--global.texture.background = global.splitTexture("v", global.texture.background, 50)
+	test.texture1, test.texture2 = global.splitTexture("v", global.texture.player.head1, 4)
 	
 	test.raMain = global.addRA({
 		posX = 1, 
@@ -93,6 +84,18 @@ function test.init()
 		name = "TRA1", 
 		drawBorders = true,
 	})
+
+	test.raMain:addGO("BackgroundTile", {
+		posX = 10,
+		posY = 10,
+		texture = test.texture1,
+	})
+	test.raMain:addGO("BackgroundTile", {
+		posX = 20,
+		posY = 10,
+		texture = test.texture2,
+	})
+	
 	
     test.test = test.raMain:addGO("Test", {
         posX = 10,
@@ -101,6 +104,8 @@ function test.init()
         name = "test1",
 		id = 1,
     })
+	
+	--[[
 	test.test2 = test.raMain:addGO("Test2", {
         posX = 10,
         posY = 25,
@@ -123,6 +128,7 @@ function test.init()
         layer = 1,
         name = "background",
     })
+	]]
 	
 
 end
@@ -143,8 +149,11 @@ function test.update()
 end
 
 function test.draw()
-	global.db.drawImage(50, 10, global.texture.player.head1)
-	global.db.drawImage(45, 10, global.texture.player.body)
+	--global.db.drawImage(50, 10, global.texture.player.head1)
+	--global.db.drawImage(45, 10, global.texture.player.body)
+
+	--global.db.drawImage(50, 10, test.texture1)
+	--global.db.drawImage(60, 10, test.texture2)
 end
 
 function test.ctrl_reset_key_down()

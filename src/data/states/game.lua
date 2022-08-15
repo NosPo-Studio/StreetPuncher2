@@ -20,7 +20,7 @@
 local global = ...
 
 global.gameName = "StreetPuncher2"
-global.gameVersion = "v0.0.6"
+global.gameVersion = "v0.0.7"
 
 --===== shared vars =====--
 local game = {
@@ -78,7 +78,8 @@ function game.init()
 	
 	--=== init game ===--
 	global.clear()
-	
+
+
 	game.raMain = global.addRA({
 		posX = 1, 
 		posY = 1, 
@@ -141,6 +142,9 @@ function game.init()
 		layer = 5,
 	})
 
+
+	
+
 end
 
 function game.start()
@@ -200,7 +204,7 @@ function game.ctrl_reset_key_down()
 end
 
 function game.stop()
-	game.gui:stop()
+	--game.gui:stop()
 end
 
 return game

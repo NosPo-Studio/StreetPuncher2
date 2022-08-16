@@ -20,7 +20,7 @@
 local global = ...
 
 global.gameName = "StreetPuncher2"
-global.gameVersion = "v0.0.8"
+global.gameVersion = "v0.1"
 
 --===== shared vars =====--
 local game = {

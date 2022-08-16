@@ -12,7 +12,12 @@ return function(state)
 		global.currentState = state
 		
 		if not global.state[state].isInitialized then
-			global.run(global.state[state].init)
+			local suc, err = global.run(global.state[state].init)
+			global.log(suc)
+			if not suc then
+				global.fatal("Could not inizialize state:\n" .. tostring(err))
+			end
+
 			global.state[state].isInitialized = true
 		end
 		global.run(global.state[state].start)

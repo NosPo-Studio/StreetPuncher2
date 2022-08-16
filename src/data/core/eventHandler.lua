@@ -244,6 +244,11 @@ function eh.key_up(s)
 	specialPressedKeys[s[3]] = nil
 end
 
+function eh.resetPressedKeys()
+	pressedKeys = {}
+	specialPressedKeys = {}
+end
+
 function eh.stop()
 	pressedKeys = {}
 	specialPressedKeys = {}

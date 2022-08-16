@@ -39,13 +39,15 @@ function GameObjectsTemplate.new(args)
 
 	args.sizeX = 24
 	args.sizeY = 19
-	args.components = { --Define the GameObjects components.
+	args.components = { --Define the GameObjects components.#
+		--[[
 		{"CopyArea",
-			x = 4,
+			x = 5,
 			y = 0,
-			sizeX = 13,
+			sizeX = 12,
 			sizeY = 17,
-		}
+		},
+		]]
 		--[[{"Sprite", 
 			x = 0, 
 			y = 0, 
@@ -54,7 +56,7 @@ function GameObjectsTemplate.new(args)
 		},]]
 	}
 	args.usesAnimation = true
-	args.noSizeArea = true
+	args.noSizeArea = false
 	args.deco = true
 	
 	--===== default stuff =====--
@@ -105,10 +107,10 @@ function GameObjectsTemplate.new(args)
 	this.sideForceRange = 20
 	this.upForceRange = 20
 
-	this.speed = 30
+	this.speed = 40
 	this.maxCharge = 100 --has to be 100
 	this.chargeMultiplier = .5
-	this.chargePerSecond = 70
+	this.chargePerSecond = 110
 
 	this.width = 10
 	this.armRange = 10
@@ -416,14 +418,36 @@ function GameObjectsTemplate.new(args)
 			end
 		end
 
-		if posX < -300 or posX > 490 then
+		if posX < -20 or posX > 390 then
 			if not this.easter then
+				local function resolve(action)
+					local key
+					for i, k in pairs(global.controls.k) do
+						if k[1] == action then
+							key = i
+							break
+						end
+					end
+					return key
+				end
+
 				local currentWorkingDir = global.shell.getWorkingDirectory()
+				global.log(global.shell.setWorkingDirectory(currentWorkingDir .. "/data/sf1"))
 				this.easter = true
-				os.execute("cd data/sf1; ./startGame.lua")
+
+				local suc, err = xpcall(loadfile("startGame.lua"), debug.traceback, global.gpu)
+				if not suc then
+					global.fatal(err, debug.traceback())
+				end
+
+				global.state.game.raMain:rerenderAll()
 				global.shell.setWorkingDirectory(currentWorkingDir)
+				do --queue reset signals
+					global.computer.pushSignal("key_down", "", 0, resolve("reset") or 1)
+					global.core.eventHandler.resetPressedKeys()
+				end
 			end
-		elseif posX > -30 and posX < 190 then
+		elseif posX > -190 and posX < 380 then
 			this.easter = false
 		end
 	end

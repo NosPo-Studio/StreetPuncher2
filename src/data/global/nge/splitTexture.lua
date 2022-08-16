@@ -70,10 +70,8 @@ return function(orientation, texture, pos)
         end
     end
 
-    global.log("ORG:", global.ut.tostring(texture))
-    global.log("SPLIT1:", global.ut.tostring(split1))
-    global.log("SPLIT2:", global.ut.tostring(split2))
-
+    split1.resX, split1.resY = split1[1], split1[2]
+    split2.resX, split2.resY = split2[1], split2[2]
 
     return split1, split2
     --return texture

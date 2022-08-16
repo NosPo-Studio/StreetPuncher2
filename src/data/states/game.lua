@@ -20,7 +20,7 @@
 local global = ...
 
 global.gameName = "StreetPuncher2"
-global.gameVersion = "v0.0.7"
+global.gameVersion = "v0.0.8"
 
 --===== shared vars =====--
 local game = {
@@ -105,14 +105,67 @@ function game.init()
 		id = 2,
     })
 	
-	game.background = game.raMain:addGO("Background", {
-        posX = 0,
-        posY = 0,
-        layer = 1,
-        name = "background",
-    })
-
 	
+	--=== generate background ===--
+
+	if true then
+		local width = 50
+		local upperTextureHeight = 25
+		local bottomTextureHeight = 5
+		local upperTexture, bottomTexture = nil, nil
+		local middleTextures = {}
+		local tmpTexture = nil
+
+		upperTexture, tmpTexture = global.splitTexture("h", global.texture.background, upperTextureHeight)
+		tmpTexture, bottomTexture = global.splitTexture("h", tmpTexture, tmpTexture.resY - bottomTextureHeight)
+		
+		
+
+		for c = 0, math.floor(global.resX / width) do
+			local middleTextureSplit
+			
+			if tmpTexture.resX > width then
+				middleTextureSplit, tmpTexture = global.splitTexture("v", tmpTexture, width)
+			else
+				middleTextureSplit = tmpTexture
+			end
+			
+			game.raMain:addGO("BackgroundTile", {
+				layer = 1, 
+				posX = width * c,
+				posY = upperTextureHeight,
+				texture = middleTextureSplit,
+				name = "BGMiddle" .. tostring(c + 1),
+			})
+		end
+
+		game.raMain:addGO("BackgroundTile", {
+			layer = 1, 
+			posX = 0,
+			posY = 0,
+			texture = upperTexture,
+			name = "BGUpper",
+		})
+		game.raMain:addGO("BackgroundTile", {
+			layer = 1, 
+			posX = 0,
+			posY = global.resY - bottomTextureHeight,
+			texture = bottomTexture,
+			name = "BGBottom",
+		})
+
+	else
+		game.background = game.raMain:addGO("Background", {
+			posX = 0,
+			posY = 0,
+			layer = 1,
+			name = "background",
+		})
+	end
+
+
+
+	--=== GUI ===--
 	game.overlay = game.raMain:addGO("GameOverOverlay", {
         posX = 64,
         posY = 8,
@@ -120,9 +173,6 @@ function game.init()
         name = "overlay",
     })
 	
-	
-	
-
 	do --add GUI
 		local gui = global.gui
 		game.gui = gui.application()
@@ -185,12 +235,32 @@ function game.update()
 end
 
 function game.draw()
-	global.gpu.set(global.resX / 2 - unicode.len(global.gameVersion) / 2 +1, 1, global.gameVersion)
+	local backgroundColor = global.db.get(math.floor(global.resX / 2 - unicode.len(global.gameVersion) / 2 + 1), 1)
+	global.gpu.setBackground(backgroundColor)
+	global.gpu.setForeground(0xaaaaaa)
+	global.gpu.set(global.resX / 2 - unicode.len(global.gameVersion) / 2 + 1, 1, global.gameVersion)
 end
 
-function game.ctrl_test_key_down()
-	global.realGPU.setBackground(0x0)
-	global.realGPU.fill(0, 0, 160, 50, " ")
+function game.ctrl_test2_key_down()
+	global.log("TEST2")
+	
+
+	local function resolve(action)
+		local key
+		for i, k in pairs(global.controls.k) do
+			if k[1] == action then
+				key = i
+				break
+			end
+		end
+		return key
+	end
+
+
+	global.log(resolve("player1_left"))
+
+	--global.realGPU.setBackground(0x0)
+	--global.realGPU.fill(0, 0, 160, 50, " ")
 end
 
 function game.ctrl_reset_key_down()

@@ -3,6 +3,10 @@ local usesDoubleBuffer = ...
 local version = "v1.1.2c"
 local isDevVersion = false
 
+local resX, resY = require("component").gpu.getResolution()
+local offsetX, offsetY = resX / 2 / 2, resY / 2 / 2
+SF1_isRunning = true
+
 local component = require("component")
 local computer = require("computer")
 local system = require("os")
@@ -43,8 +47,8 @@ local gameIsRunning = true
 --==========--
 local blinkDelay = 1
 
-local resX = 80
-local resY = 25
+local orgResX = 80
+local orgResY = 25
 
 local sleepTime = 1 --caps it to about 20 fps
 
@@ -143,6 +147,22 @@ function Draw()
 	DrawArms(player2)
 	
 	LifeGui()
+
+	gpu.setBackground(0x0)
+	gpu.fill(1, 1, resX, offsetY, " ")
+	gpu.fill(1, offsetY + orgResY + 1, resX, offsetY, " ")
+	gpu.fill(1, 1, offsetX, resY, " ")
+	gpu.fill(offsetX + orgResX + 1, 1, offsetX, resY, " ")
+
+	gpu.setBackground(0x5a5a5a)
+	gpu.setForeground(0xe1e1e1)
+	gpu.fill(offsetX - 1, offsetY, orgResX + 4, 1, "▄")
+	gpu.fill(offsetX - 1, offsetY + orgResY + 1, orgResX + 4, 1, "▀")
+	gpu.fill(offsetX - 1, offsetY, 1, orgResY + 2, " ")
+	gpu.fill(offsetX, offsetY + 1, 1, orgResY, "█")
+	gpu.fill(offsetX + orgResX + 2, offsetY, 1, orgResY + 2, " ")
+	gpu.fill(offsetX + orgResX + 1, offsetY + 1, 1, orgResY, "█")
+
 end
 
 function LifeGui() 
@@ -160,20 +180,20 @@ function LifeGui()
 		},
 	}, 1, 1, gpu)
 	gpu.setBackground(0x000000)
-	gpu.set(5, 3, "                                ")
-	gpu.set(45, 3, "                                ")
-	gpu.set(5, 5, "                                ")
-	gpu.set(45, 5, "                                ")
+	gpu.set(5 + offsetX, 3 + offsetY, "                                ")
+	gpu.set(45 + offsetX, 3 + offsetY, "                                ")
+	gpu.set(5 + offsetX, 5 + offsetY, "                                ")
+	gpu.set(45 + offsetX, 5 + offsetY, "                                ")
 	gpu.setBackground(0x00aa00)
-	gpu.fill(5, 3, player.life, 1, " ")
-	gpu.fill(45, 3, player2.life, 1, " ")
+	gpu.fill(5 + offsetX, 3 + offsetY, player.life, 1, " ")
+	gpu.fill(45 + offsetX, 3 + offsetY, player2.life, 1, " ")
 	gpu.setBackground(0x000000ff)
-	gpu.fill(5, 5, player.charge, 1, " ")
-	gpu.fill(45, 5, player2.charge, 1, " ")
+	gpu.fill(5 + offsetX, 5 + offsetY, player.charge, 1, " ")
+	gpu.fill(45 + offsetX, 5 + offsetY, player2.charge, 1, " ")
 	
 	gpu.setForeground(0xaaaaaa)
 	gpu.setBackground(0x00509f)
-	gpu.set(resX / 2 - unicode.len(version) / 2 + 1, 1, version)
+	gpu.set(orgResX / 2 - unicode.len(version) / 2 + 1 + offsetX, 1 + offsetY, version)
 end
 
 function HitCheck(p1, p2)
@@ -280,12 +300,12 @@ end
 local devCount = 0
 
 --=============== Main while ===============--
-term.clear()
-gpu.setResolution(resX, resY)
+--term.clear()
+--gpu.setResolution(resX, resY)
 
 
 Start()
-while true do
+while SF1_isRunning do
 	Update()
 	--system.sleep(0.001)
 	deltaTime = (computer.uptime() - previousDeltaTime) * 100 / 7

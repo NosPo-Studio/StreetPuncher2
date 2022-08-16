@@ -1,37 +1,641 @@
 [INFO]  [GE]: Change state to: "game". 
 [INFO]  [game]: Start init. 
-[INFO]  [DL]: Loading data groups: animations, gameObjects, parents, globalStructured, textures. 
+[INFO]  [DL]: Loading data groups: textures, globalStructured, animations, parents, gameObjects. 
 [INFO]  [DL]: Data group already loaded: globalStructured. 
 [INFO]  [DL]: Loading data group: textures. 
-[INFO]  [DLF]: Loading file: texturePacks/default/textures/background.pic: table: 0x7f1e14143360 
-[INFO]  [DLF]: Loading file: texturePacks/default/textures/player//body.pic: table: 0x7f1e18ba1600 
-[INFO]  [DLF]: Loading file: texturePacks/default/textures/player//head1.pic: table: 0x7f1e18ada8b0 
-[INFO]  [DLF]: Loading file: texturePacks/default/textures/player//arm3.pic: table: 0x7f1e1502b130 
-[INFO]  [DLF]: Loading file: texturePacks/default/textures/player//head2.pic: table: 0x7f1e151dbc30 
-[INFO]  [DLF]: Loading file: texturePacks/default/textures/player//arm1.pic: table: 0x7f1e180e8200 
-[INFO]  [DLF]: Loading file: texturePacks/default/textures/player//arm2.pic: table: 0x7f1e1803e0b0 
-[INFO]  [DLF]: Loading file: texturePacks/default/textures/player//hat.pic: table: 0x7f1e18f698d0 
-[INFO]  [DLF]: Loading file: texturePacks/default/textures/player//head3.pic: table: 0x7f1e14cf0840 
+[INFO]  [DLF]: Loading file: texturePacks/default/textures/background.pic: table: 0x7f5ef011c380 
+[INFO]  [DLF]: Loading file: texturePacks/default/textures/player//head1.pic: table: 0x7f5f041e35b0 
+[INFO]  [DLF]: Loading file: texturePacks/default/textures/player//arm2.pic: table: 0x7f5f04578580 
+[INFO]  [DLF]: Loading file: texturePacks/default/textures/player//head2.pic: table: 0x7f5ef02ce320 
+[INFO]  [DLF]: Loading file: texturePacks/default/textures/player//hat.pic: table: 0x7f5ef0258ad0 
+[INFO]  [DLF]: Loading file: texturePacks/default/textures/player//arm3.pic: table: 0x7f5efcfee0b0 
+[INFO]  [DLF]: Loading file: texturePacks/default/textures/player//body.pic: table: 0x7f5efc6b2150 
+[INFO]  [DLF]: Loading file: texturePacks/default/textures/player//head3.pic: table: 0x7f5efc86e780 
+[INFO]  [DLF]: Loading file: texturePacks/default/textures/player//arm1.pic: table: 0x7f5efc082330 
 [INFO]  [DL]: Loading data group: animations. 
-[INFO]  [DLF]: Loading file: texturePacks/default/animations/legs/: table: 0x7f1e144767f0 
+[INFO]  [DLF]: Loading file: texturePacks/default/animations/legs/: table: 0x7f5efc84d730 
 [INFO]  [DL]: Loading data group: parents. 
-[INFO]  [DLF]: Loading file: data/parents/nge//Particle.lua: function: 0x7f1e14b22330 
-[INFO]  [DLF]: Loading file: data/parents/nge//UiContainer.lua: function: 0x7f1e181707f0 
-[INFO]  [DLF]: Loading file: data/parents/nge//ParticleContainer.lua: function: 0x7f1e100d4300 
+[INFO]  [DLF]: Loading file: data/parents/nge//UiContainer.lua: function: 0x7f5efc07b180 
+[INFO]  [DLF]: Loading file: data/parents/nge//ParticleContainer.lua: function: 0x7f5ef8082e60 
+[INFO]  [DLF]: Loading file: data/parents/nge//Particle.lua: function: 0x7f5efc208f20 
 [INFO]  [DL]: Loading data group: gameObjects. 
-[INFO]  [DLF]: Loading file: data/gameObjects/Test.lua: function: 0x7f1e10e9b870 
-[INFO]  [DLF]: Loading file: data/gameObjects/Test2.lua: function: 0x7f1e0c2f7a40 
-[INFO]  [DLF]: Loading file: data/gameObjects/Fire.lua: function: 0x7f1e0c0cad70 
-[INFO]  [DLF]: Loading file: data/gameObjects/Test3.lua: function: 0x7f1e1814a850 
-[INFO]  [DLF]: Loading file: data/gameObjects/Exhaust.lua: function: 0x7f1e1007e320 
-[INFO]  [DLF]: Loading file: data/gameObjects/GameOverOverlay.lua: function: 0x7f1e18008d30 
-[INFO]  [DLF]: Loading file: data/gameObjects/particles//Dust.lua: function: 0x7f1e186d0820 
-[INFO]  [DLF]: Loading file: data/gameObjects/particles//Smoke.lua: function: 0x7f1e0c244640 
-[INFO]  [DLF]: Loading file: data/gameObjects/particles//Blood.lua: function: 0x7f1e0c081300 
-[INFO]  [DLF]: Loading file: data/gameObjects/BloodJet.lua: function: 0x7f1e180e6040 
-[INFO]  [DLF]: Loading file: data/gameObjects/Background.lua: function: 0x7f1e14aa2280 
-[INFO]  [DLF]: Loading file: data/gameObjects/BackgroundTile.lua: function: 0x7f1e14d267e0 
-[INFO]  [DLF]: Loading file: data/gameObjects/Player copy.lua: function: 0x7f1e1005e4e0 
-[INFO]  [DLF]: Loading file: data/gameObjects/Player.lua: function: 0x7f1e140467b0 
-[INFO]  [DLF]: Loading file: data/gameObjects/BloodContainer.lua: function: 0x7f1e18b9d0c0 
-[INFO]  [DLF]: Loading file: data/gameObjects/DefaultParticleContainer.lua: function: 0x7f1e18339cf0 
+[INFO]  [DLF]: Loading file: data/gameObjects/Player.lua: function: 0x7f5efc18b480 
+[INFO]  [DLF]: Loading file: data/gameObjects/Fire.lua: function: 0x7f5efcf9b5f0 
+[INFO]  [DLF]: Loading file: data/gameObjects/DefaultParticleContainer.lua: function: 0x7f5ef85b12c0 
+[INFO]  [DLF]: Loading file: data/gameObjects/Player copy.lua: function: 0x7f5ef013dfe0 
+[INFO]  [DLF]: Loading file: data/gameObjects/GameOverOverlay.lua: function: 0x7f5ef016f120 
+[INFO]  [DLF]: Loading file: data/gameObjects/Test2.lua: function: 0x7f5efcf9a100 
+[INFO]  [DLF]: Loading file: data/gameObjects/Test3.lua: function: 0x7f5efc6c8980 
+[INFO]  [DLF]: Loading file: data/gameObjects/BloodJet.lua: function: 0x7f5ef0211000 
+[INFO]  [DLF]: Loading file: data/gameObjects/BloodContainer.lua: function: 0x7f5ef0196e60 
+[INFO]  [DLF]: Loading file: data/gameObjects/Test.lua: function: 0x7f5f04b61ed0 
+[INFO]  [DLF]: Loading file: data/gameObjects/Background.lua: function: 0x7f5efc0d67c0 
+[INFO]  [DLF]: Loading file: data/gameObjects/particles//Smoke.lua: function: 0x7f5ef8b57100 
+[INFO]  [DLF]: Loading file: data/gameObjects/particles//Blood.lua: function: 0x7f5ef811bb30 
+[INFO]  [DLF]: Loading file: data/gameObjects/particles//Dust.lua: function: 0x7f5ef8111c00 
+[INFO]  [DLF]: Loading file: data/gameObjects/BackgroundTile.lua: function: 0x7f5f041883f0 
+[INFO]  [DLF]: Loading file: data/gameObjects/Exhaust.lua: function: 0x7f5ef8b4ee60 
+[INFO]  true 
+[INFO]  true 
+[WARN]  Tick take too long: F: 536, T: 3.8 
+[INFO]  --========== RELOAD STAGE ==========-- 
+[INFO]  [DL]: Loading data groups: conf. 
+[INFO]  [DL]: Loading data groups: conf, eh, gameObjects, reload, global. 
+[INFO]  [DL]: Reloading file: data/core/eventHandler.lua: function: 0x7f5ef011fec0 
+[INFO]  [DL]: Loading data group: global. 
+[INFO]  [DLF]: Reloading file: data/global/nge//newGameObject.lua: function: 0x7f5ef8124070 
+[INFO]  [DLF]: Reloading file: data/global/nge//addRA.lua: function: 0x7f5ef8b4f5e0 
+[INFO]  [DLF]: Reloading file: data/global/nge//expandFunction.lua: function: 0x7f5efc01e9d0 
+[INFO]  [DLF]: Reloading file: data/global/nge//splitTexture.lua: function: 0x7f5ef87dbe20 
+[INFO]  [DLF]: Reloading file: data/global/nge//changeState.lua: function: 0x7f5ef81de160 
+[INFO]  [DLF]: Reloading file: data/global/nge//getButtonTexture.lua: function: 0x7f5ef80d4020 
+[INFO]  [DLF]: Reloading file: data/global/nge//dumpTable.lua: function: 0x7f5ef88cc450 
+[INFO]  [DLF]: Loading file: data/global/nge//globalDebuggingFunctions.lua: function: 0x7f5ef01dab30 
+[INFO]  [DLF]: Reloading file: data/global/nge//makeImageTransparent.lua: function: 0x7f5ef0169230 
+[INFO]  [DLF]: Reloading file: data/global/nge//drawDebug.lua: function: 0x7f5ef0235d20 
+[INFO]  [DLF]: Reloading file: data/global/nge//getState.lua: function: 0x7f5ef016e360 
+[INFO]  [DLF]: Reloading file: data/global/nge//clear.lua: function: 0x7f5ef808a570 
+[INFO]  [DLF]: Reloading file: data/global/nge//setActiveBuffer.lua: function: 0x7f5ef8b85d80 
+[INFO]  [DLF]: Reloading file: data/global/nge//remRA.lua: function: 0x7f5f0490bc50 
+[INFO]  [DLF]: Reloading file: data/global/nge//empty.lua: function: 0x7f5f041106e0 
+[INFO]  [DL]: Reloading data group: gameObjects. 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Player.lua: function: 0x7f5efc00fba0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Fire.lua: function: 0x7f5ef888ed60 
+[INFO]  [DLF]: Reloading file: data/gameObjects/DefaultParticleContainer.lua: function: 0x7f5ef83d8d80 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Player copy.lua: function: 0x7f5efc0722b0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/GameOverOverlay.lua: function: 0x7f5f04657070 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test2.lua: function: 0x7f5ef0e662f0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test3.lua: function: 0x7f5efd493310 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BloodJet.lua: function: 0x7f5efc212a50 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BloodContainer.lua: function: 0x7f5efc23bf10 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test.lua: function: 0x7f5ef04777f0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Background.lua: function: 0x7f5ef01690a0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Smoke.lua: function: 0x7f5f0409df10 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Blood.lua: function: 0x7f5ef01315f0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Dust.lua: function: 0x7f5ef0032d70 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Fire.lua: function: 0x7f5ef01613a0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BackgroundTile.lua: function: 0x7f5f042c6ba0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Exhaust.lua: function: 0x7f5ef013cb90 
+[INFO]  [game]: Start init. 
+[INFO]  [DL]: Loading data groups: textures, globalStructured, animations, parents, gameObjects. 
+[INFO]  [DL]: Data group already loaded: globalStructured. 
+[INFO]  [DL]: Data group already loaded: textures. 
+[INFO]  [DL]: Data group already loaded: animations. 
+[INFO]  [DL]: Data group already loaded: parents. 
+[INFO]  [DL]: Data group already loaded: gameObjects. 
+[Global]: Adding renderArea: nil"TRA1". 
+[INFO]  --========== RELOAD STAGE ==========-- 
+[INFO]  [DL]: Loading data groups: conf. 
+[INFO]  [DL]: Loading data groups: conf, eh, gameObjects, reload, global. 
+[INFO]  [DL]: Reloading file: data/core/eventHandler.lua: function: 0x7f5f045c98c0 
+[INFO]  [DL]: Reloading data group: global. 
+[INFO]  [DLF]: Reloading file: data/global/nge//newGameObject.lua: function: 0x7f5ef805dc90 
+[INFO]  [DLF]: Reloading file: data/global/nge//addRA.lua: function: 0x7f5ef811a7e0 
+[INFO]  [DLF]: Reloading file: data/global/nge//expandFunction.lua: function: 0x7f5f04265ab0 
+[INFO]  [DLF]: Reloading file: data/global/nge//splitTexture.lua: function: 0x7f5f0423fd20 
+[INFO]  [DLF]: Reloading file: data/global/nge//changeState.lua: function: 0x7f5f04242310 
+[INFO]  [DLF]: Reloading file: data/global/nge//getButtonTexture.lua: function: 0x7f5efc2beb80 
+[INFO]  [DLF]: Reloading file: data/global/nge//dumpTable.lua: function: 0x7f5efd514380 
+[INFO]  [DLF]: Loading file: data/global/nge//globalDebuggingFunctions.lua: function: 0x7f5f040bfc30 
+[INFO]  [DLF]: Reloading file: data/global/nge//makeImageTransparent.lua: function: 0x7f5f04305cd0 
+[INFO]  [DLF]: Reloading file: data/global/nge//drawDebug.lua: function: 0x7f5efc2be590 
+[INFO]  [DLF]: Reloading file: data/global/nge//getState.lua: function: 0x7f5efc32e340 
+[INFO]  [DLF]: Reloading file: data/global/nge//clear.lua: function: 0x7f5efc01dd90 
+[INFO]  [DLF]: Reloading file: data/global/nge//setActiveBuffer.lua: function: 0x7f5efc190ae0 
+[INFO]  [DLF]: Reloading file: data/global/nge//remRA.lua: function: 0x7f5ef013da90 
+[INFO]  [DLF]: Reloading file: data/global/nge//empty.lua: function: 0x7f5ef023bee0 
+[INFO]  [DL]: Reloading data group: gameObjects. 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Player.lua: function: 0x7f5ef812be80 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Fire.lua: function: 0x7f5ef0157020 
+[INFO]  [DLF]: Reloading file: data/gameObjects/DefaultParticleContainer.lua: function: 0x7f5ef86f37c0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Player copy.lua: function: 0x7f5ef0fa9b10 
+[INFO]  [DLF]: Reloading file: data/gameObjects/GameOverOverlay.lua: function: 0x7f5efc0da600 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test2.lua: function: 0x7f5efc4c0d60 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test3.lua: function: 0x7f5efc2370f0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BloodJet.lua: function: 0x7f5ef01c1aa0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BloodContainer.lua: function: 0x7f5ef00bddf0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test.lua: function: 0x7f5f04805500 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Background.lua: function: 0x7f5f041f6880 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Smoke.lua: function: 0x7f5ef8092d30 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Blood.lua: function: 0x7f5ef8085110 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Dust.lua: function: 0x7f5ef80fd820 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Fire.lua: function: 0x7f5ef80d8f70 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BackgroundTile.lua: function: 0x7f5ef80c19f0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Exhaust.lua: function: 0x7f5ef0172370 
+[INFO]  [game]: Start init. 
+[INFO]  [DL]: Loading data groups: textures, globalStructured, animations, parents, gameObjects. 
+[INFO]  [DL]: Data group already loaded: globalStructured. 
+[INFO]  [DL]: Data group already loaded: textures. 
+[INFO]  [DL]: Data group already loaded: animations. 
+[INFO]  [DL]: Data group already loaded: parents. 
+[INFO]  [DL]: Data group already loaded: gameObjects. 
+[Global]: Adding renderArea: nil"TRA1". 
+[INFO]  --========== RELOAD STAGE ==========-- 
+[INFO]  [DL]: Loading data groups: conf. 
+[INFO]  [DL]: Loading data groups: conf, eh, gameObjects, reload, global. 
+[INFO]  [DL]: Reloading file: data/core/eventHandler.lua: function: 0x7f5f0443a500 
+[INFO]  [DL]: Reloading data group: global. 
+[INFO]  [DLF]: Reloading file: data/global/nge//newGameObject.lua: function: 0x7f5ef805f5f0 
+[INFO]  [DLF]: Reloading file: data/global/nge//addRA.lua: function: 0x7f5ef8113b40 
+[INFO]  [DLF]: Reloading file: data/global/nge//expandFunction.lua: function: 0x7f5ef0225510 
+[INFO]  [DLF]: Reloading file: data/global/nge//splitTexture.lua: function: 0x7f5ef81246e0 
+[INFO]  [DLF]: Reloading file: data/global/nge//changeState.lua: function: 0x7f5ef82f5b30 
+[INFO]  [DLF]: Reloading file: data/global/nge//getButtonTexture.lua: function: 0x7f5efc0348d0 
+[INFO]  [DLF]: Reloading file: data/global/nge//dumpTable.lua: function: 0x7f5efce8f520 
+[INFO]  [DLF]: Loading file: data/global/nge//globalDebuggingFunctions.lua: function: 0x7f5efd493a20 
+[INFO]  [DLF]: Reloading file: data/global/nge//makeImageTransparent.lua: function: 0x7f5efce8edd0 
+[INFO]  [DLF]: Reloading file: data/global/nge//drawDebug.lua: function: 0x7f5ef80e7010 
+[INFO]  [DLF]: Reloading file: data/global/nge//getState.lua: function: 0x7f5ef81da1d0 
+[INFO]  [DLF]: Reloading file: data/global/nge//clear.lua: function: 0x7f5efd25da90 
+[INFO]  [DLF]: Reloading file: data/global/nge//setActiveBuffer.lua: function: 0x7f5efc2125b0 
+[INFO]  [DLF]: Reloading file: data/global/nge//remRA.lua: function: 0x7f5ef01baa20 
+[INFO]  [DLF]: Reloading file: data/global/nge//empty.lua: function: 0x7f5ef0166ce0 
+[INFO]  [DL]: Reloading data group: gameObjects. 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Player.lua: function: 0x7f5ef01b8800 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Fire.lua: function: 0x7f5ef817c090 
+[INFO]  [DLF]: Reloading file: data/gameObjects/DefaultParticleContainer.lua: function: 0x7f5f040dec00 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Player copy.lua: function: 0x7f5ef8320210 
+[INFO]  [DLF]: Reloading file: data/gameObjects/GameOverOverlay.lua: function: 0x7f5f04650780 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test2.lua: function: 0x7f5ef011d0d0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test3.lua: function: 0x7f5efc1da850 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BloodJet.lua: function: 0x7f5efcebf570 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BloodContainer.lua: function: 0x7f5efc050d50 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test.lua: function: 0x7f5f04844f40 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Background.lua: function: 0x7f5efc230650 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Smoke.lua: function: 0x7f5f0416cab0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Blood.lua: function: 0x7f5efc764020 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Dust.lua: function: 0x7f5efc832c60 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Fire.lua: function: 0x7f5ef808f970 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BackgroundTile.lua: function: 0x7f5efc3cd470 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Exhaust.lua: function: 0x7f5ef025d690 
+[INFO]  [game]: Start init. 
+[INFO]  [DL]: Loading data groups: textures, globalStructured, animations, parents, gameObjects. 
+[INFO]  [DL]: Data group already loaded: globalStructured. 
+[INFO]  [DL]: Data group already loaded: textures. 
+[INFO]  [DL]: Data group already loaded: animations. 
+[INFO]  [DL]: Data group already loaded: parents. 
+[INFO]  [DL]: Data group already loaded: gameObjects. 
+[Global]: Adding renderArea: nil"TRA1". 
+[INFO]  --========== RELOAD STAGE ==========-- 
+[INFO]  [DL]: Loading data groups: conf. 
+[INFO]  [DL]: Loading data groups: conf, eh, gameObjects, reload, global. 
+[INFO]  [DL]: Reloading file: data/core/eventHandler.lua: function: 0x7f5ef8b74420 
+[INFO]  [DL]: Reloading data group: global. 
+[INFO]  [DLF]: Reloading file: data/global/nge//newGameObject.lua: function: 0x7f5efc5001d0 
+[INFO]  [DLF]: Reloading file: data/global/nge//addRA.lua: function: 0x7f5efc2bc8e0 
+[INFO]  [DLF]: Reloading file: data/global/nge//expandFunction.lua: function: 0x7f5ef8b4b120 
+[INFO]  [DLF]: Reloading file: data/global/nge//splitTexture.lua: function: 0x7f5ef81d2950 
+[INFO]  [DLF]: Reloading file: data/global/nge//changeState.lua: function: 0x7f5ef818d6f0 
+[INFO]  [DLF]: Reloading file: data/global/nge//getButtonTexture.lua: function: 0x7f5ef00de370 
+[INFO]  [DLF]: Reloading file: data/global/nge//dumpTable.lua: function: 0x7f5ef117d080 
+[INFO]  [DLF]: Loading file: data/global/nge//globalDebuggingFunctions.lua: function: 0x7f5efc009bd0 
+[INFO]  [DLF]: Reloading file: data/global/nge//makeImageTransparent.lua: function: 0x7f5efc084850 
+[INFO]  [DLF]: Reloading file: data/global/nge//drawDebug.lua: function: 0x7f5ef8117d30 
+[INFO]  [DLF]: Reloading file: data/global/nge//getState.lua: function: 0x7f5ef80eb560 
+[INFO]  [DLF]: Reloading file: data/global/nge//clear.lua: function: 0x7f5ef0173000 
+[INFO]  [DLF]: Reloading file: data/global/nge//setActiveBuffer.lua: function: 0x7f5ef0220790 
+[INFO]  [DLF]: Reloading file: data/global/nge//remRA.lua: function: 0x7f5efc213780 
+[INFO]  [DLF]: Reloading file: data/global/nge//empty.lua: function: 0x7f5efca34d70 
+[INFO]  [DL]: Reloading data group: gameObjects. 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Player.lua: function: 0x7f5f04656f00 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Fire.lua: function: 0x7f5f04c24920 
+[INFO]  [DLF]: Reloading file: data/gameObjects/DefaultParticleContainer.lua: function: 0x7f5ef0011970 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Player copy.lua: function: 0x7f5ef003f940 
+[INFO]  [DLF]: Reloading file: data/gameObjects/GameOverOverlay.lua: function: 0x7f5efcf93d20 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test2.lua: function: 0x7f5ef8590290 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test3.lua: function: 0x7f5ef8090220 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BloodJet.lua: function: 0x7f5efcf93c20 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BloodContainer.lua: function: 0x7f5efc0dddd0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test.lua: function: 0x7f5ef013af40 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Background.lua: function: 0x7f5ef8b74510 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Smoke.lua: function: 0x7f5ef00fc220 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Blood.lua: function: 0x7f5ef025e020 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Dust.lua: function: 0x7f5ef0fe02f0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Fire.lua: function: 0x7f5efc6fcf70 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BackgroundTile.lua: function: 0x7f5ef0882bc0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Exhaust.lua: function: 0x7f5efc050f90 
+[INFO]  [game]: Start init. 
+[INFO]  [DL]: Loading data groups: textures, globalStructured, animations, parents, gameObjects. 
+[INFO]  [DL]: Data group already loaded: globalStructured. 
+[INFO]  [DL]: Data group already loaded: textures. 
+[INFO]  [DL]: Data group already loaded: animations. 
+[INFO]  [DL]: Data group already loaded: parents. 
+[INFO]  [DL]: Data group already loaded: gameObjects. 
+[Global]: Adding renderArea: nil"TRA1". 
+[INFO]  true 
+[WARN]  Tick take too long: F: 4926, T: 6.6 
+[INFO]  --========== RELOAD STAGE ==========-- 
+[INFO]  [DL]: Loading data groups: conf. 
+[INFO]  [DL]: Loading data groups: conf, eh, gameObjects, reload, global. 
+[INFO]  [DL]: Reloading file: data/core/eventHandler.lua: function: 0x7f5ef8115ea0 
+[INFO]  [DL]: Reloading data group: global. 
+[INFO]  [DLF]: Reloading file: data/global/nge//newGameObject.lua: function: 0x7f5ef016dfe0 
+[INFO]  [DLF]: Reloading file: data/global/nge//addRA.lua: function: 0x7f5ef0e24ff0 
+[INFO]  [DLF]: Reloading file: data/global/nge//expandFunction.lua: function: 0x7f5efd2672f0 
+[INFO]  [DLF]: Reloading file: data/global/nge//splitTexture.lua: function: 0x7f5efc0eb870 
+[INFO]  [DLF]: Reloading file: data/global/nge//changeState.lua: function: 0x7f5efcf87820 
+[INFO]  [DLF]: Reloading file: data/global/nge//getButtonTexture.lua: function: 0x7f5ef015c100 
+[INFO]  [DLF]: Reloading file: data/global/nge//dumpTable.lua: function: 0x7f5ef11e50b0 
+[INFO]  [DLF]: Loading file: data/global/nge//globalDebuggingFunctions.lua: function: 0x7f5efc441200 
+[INFO]  [DLF]: Reloading file: data/global/nge//makeImageTransparent.lua: function: 0x7f5efd51a720 
+[INFO]  [DLF]: Reloading file: data/global/nge//drawDebug.lua: function: 0x7f5f04049030 
+[INFO]  [DLF]: Reloading file: data/global/nge//getState.lua: function: 0x7f5f04198110 
+[INFO]  [DLF]: Reloading file: data/global/nge//clear.lua: function: 0x7f5efd3c6c80 
+[INFO]  [DLF]: Reloading file: data/global/nge//setActiveBuffer.lua: function: 0x7f5efc01cdd0 
+[INFO]  [DLF]: Reloading file: data/global/nge//remRA.lua: function: 0x7f5efcf797d0 
+[INFO]  [DLF]: Reloading file: data/global/nge//empty.lua: function: 0x7f5efc92f710 
+[INFO]  [DL]: Reloading data group: gameObjects. 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Player.lua: function: 0x7f5f04629bb0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Fire.lua: function: 0x7f5ef8168f70 
+[INFO]  [DLF]: Reloading file: data/gameObjects/DefaultParticleContainer.lua: function: 0x7f5ef08a46b0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Player copy.lua: function: 0x7f5ef135a3f0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/GameOverOverlay.lua: function: 0x7f5ef8092f40 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test2.lua: function: 0x7f5ef8b73840 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test3.lua: function: 0x7f5ef811f790 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BloodJet.lua: function: 0x7f5ef80f78a0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BloodContainer.lua: function: 0x7f5ef0232380 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test.lua: function: 0x7f5ef80ce280 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Background.lua: function: 0x7f5ef8b3d020 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Smoke.lua: function: 0x7f5ef0cca880 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Blood.lua: function: 0x7f5efd519580 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Dust.lua: function: 0x7f5efd537430 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Fire.lua: function: 0x7f5ef817ba20 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BackgroundTile.lua: function: 0x7f5efc326350 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Exhaust.lua: function: 0x7f5ef80cedb0 
+[INFO]  [game]: Start init. 
+[INFO]  [DL]: Loading data groups: textures, globalStructured, animations, parents, gameObjects. 
+[INFO]  [DL]: Data group already loaded: globalStructured. 
+[INFO]  [DL]: Data group already loaded: textures. 
+[INFO]  [DL]: Data group already loaded: animations. 
+[INFO]  [DL]: Data group already loaded: parents. 
+[INFO]  [DL]: Data group already loaded: gameObjects. 
+[Global]: Adding renderArea: nil"TRA1". 
+[INFO]  --========== RELOAD STAGE ==========-- 
+[INFO]  [DL]: Loading data groups: conf. 
+[INFO]  [DL]: Loading data groups: conf, eh, gameObjects, reload, global. 
+[INFO]  [DL]: Reloading file: data/core/eventHandler.lua: function: 0x7f5ef0163db0 
+[INFO]  [DL]: Reloading data group: global. 
+[INFO]  [DLF]: Reloading file: data/global/nge//newGameObject.lua: function: 0x7f5efc6d0810 
+[INFO]  [DLF]: Reloading file: data/global/nge//addRA.lua: function: 0x7f5efc6cb8e0 
+[INFO]  [DLF]: Reloading file: data/global/nge//expandFunction.lua: function: 0x7f5ef80db9f0 
+[INFO]  [DLF]: Reloading file: data/global/nge//splitTexture.lua: function: 0x7f5efc084520 
+[INFO]  [DLF]: Reloading file: data/global/nge//changeState.lua: function: 0x7f5efc241060 
+[INFO]  [DLF]: Reloading file: data/global/nge//getButtonTexture.lua: function: 0x7f5ef0476de0 
+[INFO]  [DLF]: Reloading file: data/global/nge//dumpTable.lua: function: 0x7f5ef01b8a90 
+[INFO]  [DLF]: Loading file: data/global/nge//globalDebuggingFunctions.lua: function: 0x7f5efc218b70 
+[INFO]  [DLF]: Reloading file: data/global/nge//makeImageTransparent.lua: function: 0x7f5efc506450 
+[INFO]  [DLF]: Reloading file: data/global/nge//drawDebug.lua: function: 0x7f5ef8050d00 
+[INFO]  [DLF]: Reloading file: data/global/nge//getState.lua: function: 0x7f5ef8b6f390 
+[INFO]  [DLF]: Reloading file: data/global/nge//clear.lua: function: 0x7f5ef830bb10 
+[INFO]  [DLF]: Reloading file: data/global/nge//setActiveBuffer.lua: function: 0x7f5ef8b3bbe0 
+[INFO]  [DLF]: Reloading file: data/global/nge//remRA.lua: function: 0x7f5ef0211040 
+[INFO]  [DLF]: Reloading file: data/global/nge//empty.lua: function: 0x7f5ef0037510 
+[INFO]  [DL]: Reloading data group: gameObjects. 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Player.lua: function: 0x7f5ef8829190 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Fire.lua: function: 0x7f5ef81de570 
+[INFO]  [DLF]: Reloading file: data/gameObjects/DefaultParticleContainer.lua: function: 0x7f5efc6cb3e0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Player copy.lua: function: 0x7f5ef0093450 
+[INFO]  [DLF]: Reloading file: data/gameObjects/GameOverOverlay.lua: function: 0x7f5f0423eb00 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test2.lua: function: 0x7f5f0400d840 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test3.lua: function: 0x7f5ef8093c30 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BloodJet.lua: function: 0x7f5ef00a98a0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BloodContainer.lua: function: 0x7f5ef00e9f40 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test.lua: function: 0x7f5ef86e8140 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Background.lua: function: 0x7f5ef8b81d50 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Smoke.lua: function: 0x7f5ef81ce870 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Blood.lua: function: 0x7f5efd514380 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Dust.lua: function: 0x7f5efd3c8500 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Fire.lua: function: 0x7f5efc01de70 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BackgroundTile.lua: function: 0x7f5efc6b7c40 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Exhaust.lua: function: 0x7f5f0419d390 
+[INFO]  [game]: Start init. 
+[INFO]  [DL]: Loading data groups: textures, globalStructured, animations, parents, gameObjects. 
+[INFO]  [DL]: Data group already loaded: globalStructured. 
+[INFO]  [DL]: Data group already loaded: textures. 
+[INFO]  [DL]: Data group already loaded: animations. 
+[INFO]  [DL]: Data group already loaded: parents. 
+[INFO]  [DL]: Data group already loaded: gameObjects. 
+[Global]: Adding renderArea: nil"TRA1". 
+[INFO]  --========== RELOAD STAGE ==========-- 
+[INFO]  [DL]: Loading data groups: conf. 
+[INFO]  [DL]: Loading data groups: conf, eh, gameObjects, reload, global. 
+[INFO]  [DL]: Reloading file: data/core/eventHandler.lua: function: 0x7f5ef8084bd0 
+[INFO]  [DL]: Reloading data group: global. 
+[INFO]  [DLF]: Reloading file: data/global/nge//newGameObject.lua: function: 0x7f5ef1036760 
+[INFO]  [DLF]: Reloading file: data/global/nge//addRA.lua: function: 0x7f5ef0fc5610 
+[INFO]  [DLF]: Reloading file: data/global/nge//expandFunction.lua: function: 0x7f5efc0e5630 
+[INFO]  [DLF]: Reloading file: data/global/nge//splitTexture.lua: function: 0x7f5efcf9ba30 
+[INFO]  [DLF]: Reloading file: data/global/nge//changeState.lua: function: 0x7f5efc26e370 
+[INFO]  [DLF]: Reloading file: data/global/nge//getButtonTexture.lua: function: 0x7f5efc2303c0 
+[INFO]  [DLF]: Reloading file: data/global/nge//dumpTable.lua: function: 0x7f5efc6b0270 
+[INFO]  [DLF]: Loading file: data/global/nge//globalDebuggingFunctions.lua: function: 0x7f5ef000b940 
+[INFO]  [DLF]: Reloading file: data/global/nge//makeImageTransparent.lua: function: 0x7f5ef08a40e0 
+[INFO]  [DLF]: Reloading file: data/global/nge//drawDebug.lua: function: 0x7f5ef86e64a0 
+[INFO]  [DLF]: Reloading file: data/global/nge//getState.lua: function: 0x7f5ef809c8c0 
+[INFO]  [DLF]: Reloading file: data/global/nge//clear.lua: function: 0x7f5efc32cd20 
+[INFO]  [DLF]: Reloading file: data/global/nge//setActiveBuffer.lua: function: 0x7f5efc1e0380 
+[INFO]  [DLF]: Reloading file: data/global/nge//remRA.lua: function: 0x7f5f0456aa60 
+[INFO]  [DLF]: Reloading file: data/global/nge//empty.lua: function: 0x7f5f041651e0 
+[INFO]  [DL]: Reloading data group: gameObjects. 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Player.lua: function: 0x7f5ef80e37c0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Fire.lua: function: 0x7f5f040b7340 
+[INFO]  [DLF]: Reloading file: data/gameObjects/DefaultParticleContainer.lua: function: 0x7f5efcf879b0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Player copy.lua: function: 0x7f5ef88e5650 
+[INFO]  [DLF]: Reloading file: data/gameObjects/GameOverOverlay.lua: function: 0x7f5ef016b1b0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test2.lua: function: 0x7f5efc215070 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test3.lua: function: 0x7f5f0558ca70 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BloodJet.lua: function: 0x7f5efc1dd5d0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BloodContainer.lua: function: 0x7f5efc0ebd50 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test.lua: function: 0x7f5ef0fa5590 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Background.lua: function: 0x7f5ef003e010 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Smoke.lua: function: 0x7f5f041cbf70 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Blood.lua: function: 0x7f5efc2165f0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Dust.lua: function: 0x7f5efd5352c0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Fire.lua: function: 0x7f5f0407a750 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BackgroundTile.lua: function: 0x7f5ef0136bf0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Exhaust.lua: function: 0x7f5f042436a0 
+[INFO]  [game]: Start init. 
+[INFO]  [DL]: Loading data groups: textures, globalStructured, animations, parents, gameObjects. 
+[INFO]  [DL]: Data group already loaded: globalStructured. 
+[INFO]  [DL]: Data group already loaded: textures. 
+[INFO]  [DL]: Data group already loaded: animations. 
+[INFO]  [DL]: Data group already loaded: parents. 
+[INFO]  [DL]: Data group already loaded: gameObjects. 
+[Global]: Adding renderArea: nil"TRA1". 
+[INFO]  --========== RELOAD STAGE ==========-- 
+[INFO]  [DL]: Loading data groups: conf. 
+[INFO]  [DL]: Loading data groups: conf, eh, gameObjects, reload, global. 
+[INFO]  [DL]: Reloading file: data/core/eventHandler.lua: function: 0x7f5f04ddaea0 
+[INFO]  [DL]: Reloading data group: global. 
+[INFO]  [DLF]: Reloading file: data/global/nge//newGameObject.lua: function: 0x7f5f0419e550 
+[INFO]  [DLF]: Reloading file: data/global/nge//addRA.lua: function: 0x7f5f0400e8a0 
+[INFO]  [DLF]: Reloading file: data/global/nge//expandFunction.lua: function: 0x7f5f04ecabb0 
+[INFO]  [DLF]: Reloading file: data/global/nge//splitTexture.lua: function: 0x7f5ef86f26e0 
+[INFO]  [DLF]: Reloading file: data/global/nge//changeState.lua: function: 0x7f5ef80902b0 
+[INFO]  [DLF]: Reloading file: data/global/nge//getButtonTexture.lua: function: 0x7f5ef8559f60 
+[INFO]  [DLF]: Reloading file: data/global/nge//dumpTable.lua: function: 0x7f5ef80fdc10 
+[INFO]  [DLF]: Loading file: data/global/nge//globalDebuggingFunctions.lua: function: 0x7f5efc453d70 
+[INFO]  [DLF]: Reloading file: data/global/nge//makeImageTransparent.lua: function: 0x7f5efd525030 
+[INFO]  [DLF]: Reloading file: data/global/nge//drawDebug.lua: function: 0x7f5ef0197210 
+[INFO]  [DLF]: Reloading file: data/global/nge//getState.lua: function: 0x7f5ef01e0cb0 
+[INFO]  [DLF]: Reloading file: data/global/nge//clear.lua: function: 0x7f5ef80cab10 
+[INFO]  [DLF]: Reloading file: data/global/nge//setActiveBuffer.lua: function: 0x7f5ef81dc1c0 
+[INFO]  [DLF]: Reloading file: data/global/nge//remRA.lua: function: 0x7f5ef811a6a0 
+[INFO]  [DLF]: Reloading file: data/global/nge//empty.lua: function: 0x7f5ef8050ae0 
+[INFO]  [DL]: Reloading data group: gameObjects. 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Player.lua: function: 0x7f5ef0f89490 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Fire.lua: function: 0x7f5ef016a4c0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/DefaultParticleContainer.lua: function: 0x7f5f041b3210 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Player copy.lua: function: 0x7f5f055abfe0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/GameOverOverlay.lua: function: 0x7f5ef8ebe660 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test2.lua: function: 0x7f5efd50c4b0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test3.lua: function: 0x7f5efc763550 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BloodJet.lua: function: 0x7f5ef86ed520 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BloodContainer.lua: function: 0x7f5ef80c6a90 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test.lua: function: 0x7f5ef0172b70 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Background.lua: function: 0x7f5efc4b2460 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Smoke.lua: function: 0x7f5f0404b7d0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Blood.lua: function: 0x7f5efc810fc0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Dust.lua: function: 0x7f5efc285fc0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Fire.lua: function: 0x7f5efc22fba0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BackgroundTile.lua: function: 0x7f5ef83b5e40 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Exhaust.lua: function: 0x7f5ef80ff990 
+[INFO]  [game]: Start init. 
+[INFO]  [DL]: Loading data groups: textures, globalStructured, animations, parents, gameObjects. 
+[INFO]  [DL]: Data group already loaded: globalStructured. 
+[INFO]  [DL]: Data group already loaded: textures. 
+[INFO]  [DL]: Data group already loaded: animations. 
+[INFO]  [DL]: Data group already loaded: parents. 
+[INFO]  [DL]: Data group already loaded: gameObjects. 
+[Global]: Adding renderArea: nil"TRA1". 
+[INFO]  --========== RELOAD STAGE ==========-- 
+[INFO]  [DL]: Loading data groups: conf. 
+[INFO]  [DL]: Loading data groups: conf, eh, gameObjects, reload, global. 
+[INFO]  [DL]: Reloading file: data/core/eventHandler.lua: function: 0x7f5f0458d5d0 
+[INFO]  [DL]: Reloading data group: global. 
+[INFO]  [DLF]: Reloading file: data/global/nge//newGameObject.lua: function: 0x7f5ef036b6b0 
+[INFO]  [DLF]: Reloading file: data/global/nge//addRA.lua: function: 0x7f5ef11e6220 
+[INFO]  [DLF]: Reloading file: data/global/nge//expandFunction.lua: function: 0x7f5f04364ec0 
+[INFO]  [DLF]: Reloading file: data/global/nge//splitTexture.lua: function: 0x7f5efd30c9d0 
+[INFO]  [DLF]: Reloading file: data/global/nge//changeState.lua: function: 0x7f5efce8de30 
+[INFO]  [DLF]: Reloading file: data/global/nge//getButtonTexture.lua: function: 0x7f5ef0099b30 
+[INFO]  [DLF]: Reloading file: data/global/nge//dumpTable.lua: function: 0x7f5ef1239e30 
+[INFO]  [DLF]: Loading file: data/global/nge//globalDebuggingFunctions.lua: function: 0x7f5ef0131bc0 
+[INFO]  [DLF]: Reloading file: data/global/nge//makeImageTransparent.lua: function: 0x7f5ef1156fe0 
+[INFO]  [DLF]: Reloading file: data/global/nge//drawDebug.lua: function: 0x7f5ef0fe3820 
+[INFO]  [DLF]: Reloading file: data/global/nge//getState.lua: function: 0x7f5ef0e5b280 
+[INFO]  [DLF]: Reloading file: data/global/nge//clear.lua: function: 0x7f5f055af250 
+[INFO]  [DLF]: Reloading file: data/global/nge//setActiveBuffer.lua: function: 0x7f5f04640450 
+[INFO]  [DLF]: Reloading file: data/global/nge//remRA.lua: function: 0x7f5ef01351e0 
+[INFO]  [DLF]: Reloading file: data/global/nge//empty.lua: function: 0x7f5ef109cd30 
+[INFO]  [DL]: Reloading data group: gameObjects. 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Player.lua: function: 0x7f5ef80d04e0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Fire.lua: function: 0x7f5efcf94470 
+[INFO]  [DLF]: Reloading file: data/gameObjects/DefaultParticleContainer.lua: function: 0x7f5f05585de0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Player copy.lua: function: 0x7f5ef895e4c0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/GameOverOverlay.lua: function: 0x7f5ef8eb4670 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test2.lua: function: 0x7f5ef8b39920 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test3.lua: function: 0x7f5ef01b8c60 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BloodJet.lua: function: 0x7f5efc7e9210 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BloodContainer.lua: function: 0x7f5efc2bd820 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test.lua: function: 0x7f5ef00c5880 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Background.lua: function: 0x7f5f047c2680 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Smoke.lua: function: 0x7f5ef023bb60 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Blood.lua: function: 0x7f5ef0038fa0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Dust.lua: function: 0x7f5ef0882c00 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Fire.lua: function: 0x7f5ef8b8e9c0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BackgroundTile.lua: function: 0x7f5ef8b39e80 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Exhaust.lua: function: 0x7f5f05586590 
+[INFO]  [game]: Start init. 
+[INFO]  [DL]: Loading data groups: textures, globalStructured, animations, parents, gameObjects. 
+[INFO]  [DL]: Data group already loaded: globalStructured. 
+[INFO]  [DL]: Data group already loaded: textures. 
+[INFO]  [DL]: Data group already loaded: animations. 
+[INFO]  [DL]: Data group already loaded: parents. 
+[INFO]  [DL]: Data group already loaded: gameObjects. 
+[Global]: Adding renderArea: nil"TRA1". 
+[INFO]  --========== RELOAD STAGE ==========-- 
+[INFO]  [DL]: Loading data groups: conf. 
+[INFO]  [DL]: Loading data groups: conf, eh, gameObjects, reload, global. 
+[INFO]  [DL]: Reloading file: data/core/eventHandler.lua: function: 0x7f5efc80fff0 
+[INFO]  [DL]: Reloading data group: global. 
+[INFO]  [DLF]: Reloading file: data/global/nge//newGameObject.lua: function: 0x7f5f041f1f50 
+[INFO]  [DLF]: Reloading file: data/global/nge//addRA.lua: function: 0x7f5f0404d360 
+[INFO]  [DLF]: Reloading file: data/global/nge//expandFunction.lua: function: 0x7f5ef80659b0 
+[INFO]  [DLF]: Reloading file: data/global/nge//splitTexture.lua: function: 0x7f5ef8b86df0 
+[INFO]  [DLF]: Reloading file: data/global/nge//changeState.lua: function: 0x7f5ef80943e0 
+[INFO]  [DLF]: Reloading file: data/global/nge//getButtonTexture.lua: function: 0x7f5ef82534d0 
+[INFO]  [DLF]: Reloading file: data/global/nge//dumpTable.lua: function: 0x7f5ef812dce0 
+[INFO]  [DLF]: Loading file: data/global/nge//globalDebuggingFunctions.lua: function: 0x7f5ef0fc5300 
+[INFO]  [DLF]: Reloading file: data/global/nge//makeImageTransparent.lua: function: 0x7f5ef0009f80 
+[INFO]  [DLF]: Reloading file: data/global/nge//drawDebug.lua: function: 0x7f5efc18b4b0 
+[INFO]  [DLF]: Reloading file: data/global/nge//getState.lua: function: 0x7f5efc18fb20 
+[INFO]  [DLF]: Reloading file: data/global/nge//clear.lua: function: 0x7f5efcfe8160 
+[INFO]  [DLF]: Reloading file: data/global/nge//setActiveBuffer.lua: function: 0x7f5efc7befb0 
+[INFO]  [DLF]: Reloading file: data/global/nge//remRA.lua: function: 0x7f5f0400aef0 
+[INFO]  [DLF]: Reloading file: data/global/nge//empty.lua: function: 0x7f5f04844ec0 
+[INFO]  [DL]: Reloading data group: gameObjects. 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Player.lua: function: 0x7f5ef04984e0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Fire.lua: function: 0x7f5efc6b0150 
+[INFO]  [DLF]: Reloading file: data/gameObjects/DefaultParticleContainer.lua: function: 0x7f5ef8b69270 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Player copy.lua: function: 0x7f5efc735930 
+[INFO]  [DLF]: Reloading file: data/gameObjects/GameOverOverlay.lua: function: 0x7f5f041db7e0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test2.lua: function: 0x7f5f04805550 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test3.lua: function: 0x7f5ef80ba7b0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BloodJet.lua: function: 0x7f5efcf8c870 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BloodContainer.lua: function: 0x7f5efc6d1190 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test.lua: function: 0x7f5f04058e50 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Background.lua: function: 0x7f5ef0fa91b0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Smoke.lua: function: 0x7f5ef80e78d0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Blood.lua: function: 0x7f5ef003d6d0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Dust.lua: function: 0x7f5ef011f6c0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Fire.lua: function: 0x7f5ef00e1ec0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BackgroundTile.lua: function: 0x7f5efc6db230 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Exhaust.lua: function: 0x7f5ef0214310 
+[INFO]  [game]: Start init. 
+[INFO]  [DL]: Loading data groups: textures, globalStructured, animations, parents, gameObjects. 
+[INFO]  [DL]: Data group already loaded: globalStructured. 
+[INFO]  [DL]: Data group already loaded: textures. 
+[INFO]  [DL]: Data group already loaded: animations. 
+[INFO]  [DL]: Data group already loaded: parents. 
+[INFO]  [DL]: Data group already loaded: gameObjects. 
+[Global]: Adding renderArea: nil"TRA1". 
+[WARN]  Tick take too long: F: 8472, T: 1.05 
+[INFO]  --========== RELOAD STAGE ==========-- 
+[INFO]  [DL]: Loading data groups: conf. 
+[INFO]  [DL]: Loading data groups: conf, eh, gameObjects, reload, global. 
+[INFO]  [DL]: Reloading file: data/core/eventHandler.lua: function: 0x7f5ef0135590 
+[INFO]  [DL]: Reloading data group: global. 
+[INFO]  [DLF]: Reloading file: data/global/nge//newGameObject.lua: function: 0x7f5efd5164a0 
+[INFO]  [DLF]: Reloading file: data/global/nge//addRA.lua: function: 0x7f5efd4fd6e0 
+[INFO]  [DLF]: Reloading file: data/global/nge//expandFunction.lua: function: 0x7f5ef8253660 
+[INFO]  [DLF]: Reloading file: data/global/nge//splitTexture.lua: function: 0x7f5ef08acfe0 
+[INFO]  [DLF]: Reloading file: data/global/nge//changeState.lua: function: 0x7f5ef12b34f0 
+[INFO]  [DLF]: Reloading file: data/global/nge//getButtonTexture.lua: function: 0x7f5ef808bb40 
+[INFO]  [DLF]: Reloading file: data/global/nge//dumpTable.lua: function: 0x7f5ef8eb2f80 
+[INFO]  [DLF]: Loading file: data/global/nge//globalDebuggingFunctions.lua: function: 0x7f5f042a4e10 
+[INFO]  [DLF]: Reloading file: data/global/nge//makeImageTransparent.lua: function: 0x7f5f04382960 
+[INFO]  [DLF]: Reloading file: data/global/nge//drawDebug.lua: function: 0x7f5f041b2d60 
+[INFO]  [DLF]: Reloading file: data/global/nge//getState.lua: function: 0x7f5f041f9d20 
+[INFO]  [DLF]: Reloading file: data/global/nge//clear.lua: function: 0x7f5ef104b8a0 
+[INFO]  [DLF]: Reloading file: data/global/nge//setActiveBuffer.lua: function: 0x7f5ef036c2e0 
+[INFO]  [DLF]: Reloading file: data/global/nge//remRA.lua: function: 0x7f5efc2bce90 
+[INFO]  [DLF]: Reloading file: data/global/nge//empty.lua: function: 0x7f5efd50b4b0 
+[INFO]  [DL]: Reloading data group: gameObjects. 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Player.lua: function: 0x7f5efc737730 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Fire.lua: function: 0x7f5ef0fd9df0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/DefaultParticleContainer.lua: function: 0x7f5f04110eb0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Player copy.lua: function: 0x7f5f04aed9c0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/GameOverOverlay.lua: function: 0x7f5efc1855b0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test2.lua: function: 0x7f5ef80e3d10 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test3.lua: function: 0x7f5efc6c8d80 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BloodJet.lua: function: 0x7f5efcec1560 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BloodContainer.lua: function: 0x7f5efc6afba0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test.lua: function: 0x7f5f041dc5d0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Background.lua: function: 0x7f5ef0fe13a0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Smoke.lua: function: 0x7f5ef107efc0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Blood.lua: function: 0x7f5ef023c940 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Dust.lua: function: 0x7f5ef00a02b0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Fire.lua: function: 0x7f5efc288820 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BackgroundTile.lua: function: 0x7f5ef86f2cb0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Exhaust.lua: function: 0x7f5ef8087530 
+[INFO]  [game]: Start init. 
+[INFO]  [DL]: Loading data groups: textures, globalStructured, animations, parents, gameObjects. 
+[INFO]  [DL]: Data group already loaded: globalStructured. 
+[INFO]  [DL]: Data group already loaded: textures. 
+[INFO]  [DL]: Data group already loaded: animations. 
+[INFO]  [DL]: Data group already loaded: parents. 
+[INFO]  [DL]: Data group already loaded: gameObjects. 
+[Global]: Adding renderArea: nil"TRA1". 
+[INFO]  --========== RELOAD STAGE ==========-- 
+[INFO]  [DL]: Loading data groups: conf. 
+[INFO]  [DL]: Loading data groups: conf, eh, gameObjects, reload, global. 
+[INFO]  [DL]: Reloading file: data/core/eventHandler.lua: function: 0x7f5ef80fd180 
+[INFO]  [DL]: Reloading data group: global. 
+[INFO]  [DLF]: Reloading file: data/global/nge//newGameObject.lua: function: 0x7f5ef036c320 
+[INFO]  [DLF]: Reloading file: data/global/nge//addRA.lua: function: 0x7f5ef04d0ea0 
+[INFO]  [DLF]: Reloading file: data/global/nge//expandFunction.lua: function: 0x7f5efc01e9d0 
+[INFO]  [DLF]: Reloading file: data/global/nge//splitTexture.lua: function: 0x7f5f04163410 
+[INFO]  [DLF]: Reloading file: data/global/nge//changeState.lua: function: 0x7f5f041976b0 
+[INFO]  [DLF]: Reloading file: data/global/nge//getButtonTexture.lua: function: 0x7f5ef8b49120 
+[INFO]  [DLF]: Reloading file: data/global/nge//dumpTable.lua: function: 0x7f5ef8b42250 
+[INFO]  [DLF]: Loading file: data/global/nge//globalDebuggingFunctions.lua: function: 0x7f5ef0fc7090 
+[INFO]  [DLF]: Reloading file: data/global/nge//makeImageTransparent.lua: function: 0x7f5ef0fd9530 
+[INFO]  [DLF]: Reloading file: data/global/nge//drawDebug.lua: function: 0x7f5efc190210 
+[INFO]  [DLF]: Reloading file: data/global/nge//getState.lua: function: 0x7f5efc029ea0 
+[INFO]  [DLF]: Reloading file: data/global/nge//clear.lua: function: 0x7f5f04165c40 
+[INFO]  [DLF]: Reloading file: data/global/nge//setActiveBuffer.lua: function: 0x7f5f0458e640 
+[INFO]  [DLF]: Reloading file: data/global/nge//remRA.lua: function: 0x7f5f042c6b60 
+[INFO]  [DLF]: Reloading file: data/global/nge//empty.lua: function: 0x7f5f04e433e0 
+[INFO]  [DL]: Reloading data group: gameObjects. 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Player.lua: function: 0x7f5efc3ee390 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Fire.lua: function: 0x7f5f0412b930 
+[INFO]  [DLF]: Reloading file: data/gameObjects/DefaultParticleContainer.lua: function: 0x7f5ef886d420 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Player copy.lua: function: 0x7f5efd5352a0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/GameOverOverlay.lua: function: 0x7f5f04637aa0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test2.lua: function: 0x7f5ef8b4ac80 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test3.lua: function: 0x7f5ef8111670 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BloodJet.lua: function: 0x7f5f043a0160 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BloodContainer.lua: function: 0x7f5f041e0f50 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test.lua: function: 0x7f5ef92073e0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Background.lua: function: 0x7f5ef805bb50 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Smoke.lua: function: 0x7f5f0418ffd0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Blood.lua: function: 0x7f5ef8254b30 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Dust.lua: function: 0x7f5ef819d060 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Fire.lua: function: 0x7f5f04c21fc0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BackgroundTile.lua: function: 0x7f5ef116ee30 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Exhaust.lua: function: 0x7f5efc4c20f0 
+[INFO]  [game]: Start init. 
+[INFO]  [DL]: Loading data groups: textures, globalStructured, animations, parents, gameObjects. 
+[INFO]  [DL]: Data group already loaded: globalStructured. 
+[INFO]  [DL]: Data group already loaded: textures. 
+[INFO]  [DL]: Data group already loaded: animations. 
+[INFO]  [DL]: Data group already loaded: parents. 
+[INFO]  [DL]: Data group already loaded: gameObjects. 
+[Global]: Adding renderArea: nil"TRA1". 
+[INFO]  --========== RELOAD STAGE ==========-- 
+[INFO]  [DL]: Loading data groups: conf. 
+[INFO]  [DL]: Loading data groups: conf, eh, gameObjects, reload, global. 
+[INFO]  [DL]: Reloading file: data/core/eventHandler.lua: function: 0x7f5efc6d0870 
+[INFO]  [DL]: Reloading data group: global. 
+[INFO]  [DLF]: Reloading file: data/global/nge//newGameObject.lua: function: 0x7f5f04360f30 
+[INFO]  [DLF]: Reloading file: data/global/nge//addRA.lua: function: 0x7f5f055dbde0 
+[INFO]  [DLF]: Reloading file: data/global/nge//expandFunction.lua: function: 0x7f5ef80830f0 
+[INFO]  [DLF]: Reloading file: data/global/nge//splitTexture.lua: function: 0x7f5f04006370 
+[INFO]  [DLF]: Reloading file: data/global/nge//changeState.lua: function: 0x7f5f055af0a0 
+[INFO]  [DLF]: Reloading file: data/global/nge//getButtonTexture.lua: function: 0x7f5efcf9bbd0 
+[INFO]  [DLF]: Reloading file: data/global/nge//dumpTable.lua: function: 0x7f5efd53dff0 
+[INFO]  [DLF]: Loading file: data/global/nge//globalDebuggingFunctions.lua: function: 0x7f5ef117c360 
+[INFO]  [DLF]: Reloading file: data/global/nge//makeImageTransparent.lua: function: 0x7f5ef0fa6400 
+[INFO]  [DLF]: Reloading file: data/global/nge//drawDebug.lua: function: 0x7f5efc2d9fa0 
+[INFO]  [DLF]: Reloading file: data/global/nge//getState.lua: function: 0x7f5efc02b780 
+[INFO]  [DLF]: Reloading file: data/global/nge//clear.lua: function: 0x7f5efc344470 
+[INFO]  [DLF]: Reloading file: data/global/nge//setActiveBuffer.lua: function: 0x7f5efc21a510 
+[INFO]  [DLF]: Reloading file: data/global/nge//remRA.lua: function: 0x7f5ef80ad6a0 
+[INFO]  [DLF]: Reloading file: data/global/nge//empty.lua: function: 0x7f5ef82f5140 
+[INFO]  [DL]: Reloading data group: gameObjects. 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Player.lua: function: 0x7f5efc18bd50 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Fire.lua: function: 0x7f5f0431c690 
+[INFO]  [DLF]: Reloading file: data/gameObjects/DefaultParticleContainer.lua: function: 0x7f5f0418d040 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Player copy.lua: function: 0x7f5efcf9a750 
+[INFO]  [DLF]: Reloading file: data/gameObjects/GameOverOverlay.lua: function: 0x7f5ef0167a10 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test2.lua: function: 0x7f5f04385d70 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test3.lua: function: 0x7f5f04da5630 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BloodJet.lua: function: 0x7f5f055a88e0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BloodContainer.lua: function: 0x7f5f04aed3b0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Test.lua: function: 0x7f5efc212670 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Background.lua: function: 0x7f5ef025dd20 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Smoke.lua: function: 0x7f5ef80e66a0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Blood.lua: function: 0x7f5f048439f0 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Dust.lua: function: 0x7f5f041cd230 
+[INFO]  [DLF]: Reloading file: data/gameObjects/particles//Fire.lua: function: 0x7f5f041d1090 
+[INFO]  [DLF]: Reloading file: data/gameObjects/BackgroundTile.lua: function: 0x7f5ef0092b80 
+[INFO]  [DLF]: Reloading file: data/gameObjects/Exhaust.lua: function: 0x7f5ef8031890 
+[INFO]  [game]: Start init. 
+[INFO]  [DL]: Loading data groups: textures, globalStructured, animations, parents, gameObjects. 
+[INFO]  [DL]: Data group already loaded: globalStructured. 
+[INFO]  [DL]: Data group already loaded: textures. 
+[INFO]  [DL]: Data group already loaded: animations. 
+[INFO]  [DL]: Data group already loaded: parents. 
+[INFO]  [DL]: Data group already loaded: gameObjects. 
+[Global]: Adding renderArea: nil"TRA1". 

@@ -66,8 +66,8 @@ function Player:Update()
 		Player.punchCount = Player.punchCount +1
 	end
 
-	if Player.posX < 0 or Player.posX > 80 then
-		--os.exit()
+	if Player.posX < -200 or Player.posX > 280 then
+		SF1_isRunning = false
 	end
 end
 

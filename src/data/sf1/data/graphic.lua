@@ -1,6 +1,10 @@
---GraphicLib v0.1
+--GraphicLib v0.1c
+
+local resX, resY = require("component").gpu.getResolution()
+local offsetX, offsetY = resX / 2 / 2, resY / 2 / 2
 
 function ClearAt(t, posX, posY, gpu)
+	posX, posY = posX + offsetX, posY + offsetY
 	AddToTexture(t, posX, posY)
 	ClearTexture(t, gpu)
 	AddToTexture(t, -posX, -posY)
@@ -26,6 +30,7 @@ function ClearTexture(t, gpu)
 end
 
 function DrawAt(t, posX, posY, gpu)
+	posX, posY = posX + offsetX, posY + offsetY
 	AddToTexture(t, posX, posY)
 	DrawTexture(t, gpu)
 	AddToTexture(t, -posX, -posY)

@@ -180,8 +180,8 @@ function global.setConsoleSize(size) --obsolete
 end
 
 function global.run(func, ...)
+	local suc, err
 	if func ~= nil then
-		local suc, err
 		if conf.debug.isDev then
 			suc, err = xpcall(func, debug.traceback, ...)
 		else
@@ -189,8 +189,10 @@ function global.run(func, ...)
 		end
 		if suc == false then
 			global.error("[GE]: Failerd to run " .. tostring(func) .. "\n", err, debug.traceback())
+			return suc, tostring(err) .. debug.traceback()
 		end
 	end
+	return suc, err
 end
 
 function global.load(args)

@@ -81,9 +81,9 @@ function GameObjectsTemplate.new(args)
 	--Called up to once a frame.
 	this.update = function(this, dt, ra) 
 		--global.log(game.gameIsRunning)
-		if game.gameIsRunning then
+		if game.gameIsRunning and select(2, this:getPos()) < 1000 then
 			this:moveTo(1000, 1000)
-		else
+		elseif not game.gameIsRunning then
 			this:moveTo(this.startPosX, this.startPosY)
 		end
 

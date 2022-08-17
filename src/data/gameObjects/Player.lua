@@ -110,7 +110,7 @@ function GameObjectsTemplate.new(args)
 	this.speed = 40
 	this.maxCharge = 100 --has to be 100
 	this.chargeMultiplier = .5
-	this.chargePerSecond = 110
+	this.chargePerSecond = 100
 
 	this.width = 10
 	this.armRange = 10

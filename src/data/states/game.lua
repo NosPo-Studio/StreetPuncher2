@@ -20,12 +20,13 @@
 local global = ...
 
 global.gameName = "StreetPuncher2"
-global.gameVersion = "v0.1"
+global.gameVersion = "v1.0"
 
 --===== shared vars =====--
 local game = {
-	gameIsRunning = false,
-	winner = "UNKNOWN",
+	gameIsRunning = true,
+	winner = "",
+	framesSinceDeath = 0,
 }
 
 --===== local vars =====--
@@ -219,16 +220,23 @@ function game.update()
 	game.chargeBar1.value = game.player1.charge
 	game.chargeBar2.value = game.player2.charge
 
-	if game.gameIsRunning then
-		if game.player1.life <= 0 or game.player2.life <= 0 then
-			game.gameIsRunning = false
-			
-			if game.player1.life <= 0 and game.player2.life <= 0 then
-				game.winner = "No one"
-			elseif game.player1.life <= 0 then
-				game.winner = game.player1.name
-			elseif game.player2.life <= 0 then
-				game.winner = game.player2.name
+	if game.gameIsRunning and game.framesSinceDeath <= 3 then
+		if 
+			(game.player1.life <= 0 and global.computer.uptime() - game.player1.bloodJetStartTime > game.player1.bloodJetTime) or 
+			(game.player2.life <= 0 and global.computer.uptime() - game.player2.bloodJetStartTime > game.player2.bloodJetTime)
+		then
+			if game.framesSinceDeath < 3 then
+				game.framesSinceDeath = game.framesSinceDeath + 1
+			else
+				game.gameIsRunning = false
+				
+				if game.player1.life <= 0 and game.player2.life <= 0 then
+					game.winner = "No one"
+				elseif game.player1.life <= 0 then
+					game.winner = game.player1.name
+				elseif game.player2.life <= 0 then
+					game.winner = game.player2.name
+				end
 			end
 		end
 	end
@@ -265,6 +273,7 @@ end
 
 function game.ctrl_reset_key_down()
 	game.gameIsRunning = true
+	game.framesSinceDeath = 0
 	
 	--quick and dirty bug fix
 	game.player1.life = 100

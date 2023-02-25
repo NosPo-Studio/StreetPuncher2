@@ -20,7 +20,7 @@
 local global = ...
 
 global.gameName = "StreetPuncher2"
-global.gameVersion = "v1.0.1"
+global.gameVersion = "v1.0.2"
 
 --===== shared vars =====--
 local game = {
@@ -40,11 +40,7 @@ end
 --===== shared functions =====--
 function game.init()
 	print("[game]: Start init.")
-	
-	--===== debug =====--
-	
-	--===== debug end =====--
-	
+
 	global.load({
 		toLoad = {
 			parents = true,
@@ -75,11 +71,9 @@ function game.init()
 			global.texture.player[i] = t
 		end
 	end
-
 	
 	--=== init game ===--
 	global.clear()
-
 
 	game.raMain = global.addRA({
 		posX = 1, 
@@ -106,9 +100,7 @@ function game.init()
 		id = 2,
     })
 	
-	
 	--=== generate background ===--
-
 	if true then
 		local width = 50
 		local upperTextureHeight = 25
@@ -119,8 +111,6 @@ function game.init()
 
 		upperTexture, tmpTexture = global.splitTexture("h", global.texture.background, upperTextureHeight)
 		tmpTexture, bottomTexture = global.splitTexture("h", tmpTexture, tmpTexture.resY - bottomTextureHeight)
-		
-		
 
 		for c = 0, math.floor(global.resX / width) do
 			local middleTextureSplit
@@ -164,8 +154,6 @@ function game.init()
 		})
 	end
 
-
-
 	--=== GUI ===--
 	game.overlay = game.raMain:addGO("GameOverOverlay", {
         posX = 64,
@@ -192,29 +180,14 @@ function game.init()
 	game.bloodContainer = game.raMain:addGO("BloodContainer", {
 		layer = 5,
 	})
-
-
-	
-
 end
 
 function game.start()
-	--game.bloodContainer:bloodExplosion(50, 10)
-
 	game.player1:reset()
 	game.player2:reset()
-	
-	--===== debug =====--
-	
-
-
-	
-	--===== debug end =====--
-	
 end
 
 function game.update()
-	
 	game.lifeBar1.value = game.player1.life
 	game.lifeBar2.value = game.player2.life
 	game.chargeBar1.value = game.player1.charge
@@ -250,9 +223,6 @@ function game.draw()
 end
 
 function game.ctrl_test2_key_down()
-	global.log("TEST2")
-	
-
 	local function resolve(action)
 		local key
 		for i, k in pairs(global.controls.k) do
@@ -263,7 +233,6 @@ function game.ctrl_test2_key_down()
 		end
 		return key
 	end
-
 
 	global.log(resolve("player1_left"))
 

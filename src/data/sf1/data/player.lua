@@ -66,7 +66,7 @@ function Player:Update()
 		Player.punchCount = Player.punchCount +1
 	end
 
-	if Player.posX < -200 or Player.posX > 280 then
+	if Player.posX < -100 or Player.posX > 180 then
 		SF1_isRunning = false
 	end
 end

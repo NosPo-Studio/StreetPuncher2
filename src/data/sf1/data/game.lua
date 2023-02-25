@@ -1,6 +1,6 @@
 local usesDoubleBuffer = ...
 
-local version = "v1.1.2c"
+local version = "v1.1.3c"
 local isDevVersion = false
 
 local resX, resY = require("component").gpu.getResolution()

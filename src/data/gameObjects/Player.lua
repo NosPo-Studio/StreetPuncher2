@@ -418,7 +418,7 @@ function GameObjectsTemplate.new(args)
 			end
 		end
 
-		if posX < -20 or posX > 390 then
+		if posX < -230 or posX > 390 then
 			if not this.easter then
 				local function resolve(action)
 					local key

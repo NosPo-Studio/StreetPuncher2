@@ -4,6 +4,20 @@ As the successor of [StreetPuncher](https://github.com/MisterNoNameLP/StreetPunc
 
 ![](preview.gif)
 
+# Controls
+The controls can be changed in the `controls.ini` file
+
+Defaults:  
+```
+player1 left = A  
+player1 right = D  
+player1 punch = S  
+
+player2 left = J  
+player2 right = L  
+player2 punch = K  
+```
+
 # Performance
 The performance of StreetPuncher2 highly depents on the power of the CPU minecraft is running on.  
 So if the game runns at low FPS running minecraft on a server or client with stronger CPU can help.  
@@ -15,7 +29,7 @@ Memory: 8MB
 Disk storage: 1.8MB
 
 # Instalation
-If you have an internet card installed you can simply run this command line to install the game into the current dir: `wget https://raw.githubusercontent.com/NosPo-Studio/StreetPuncher2/main/StreetPuncher2-v1.0.1_installer.lua .streetpuncher2_installer.lua; ./.streetpuncher2_installer.lua StreetPuncher2; rm .streetpuncher2_installer.lua`.
+If you have an internet card installed you can simply run this command line to install the game into the current dir: `wget https://raw.githubusercontent.com/NosPo-Studio/StreetPuncher2/main/StreetPuncher2_installer.lua .streetpuncher2_installer.lua; ./.streetpuncher2_installer.lua StreetPuncher2; rm .streetpuncher2_installer.lua`.
 
 If you want to install it manually you can copy the `StreetPuncher2-v1.0.1_installer.lua` onto your disc and execute it.
 

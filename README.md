@@ -2,6 +2,8 @@
 StreetPuncher2 is 1v1 street fighting game for the minecraft mod OpenComputers.
 As the successor of [StreetPuncher](https://github.com/MisterNoNameLP/StreetPuncher) it mostly keeps the original gameplay while getting some complete graphics overhaul.
 
+![](preview.gif)
+
 # Performance
 The performance of StreetPuncher2 highly depents on the power of the CPU minecraft is running on.  
 So if the game runns at low FPS running minecraft on a server or client with stronger CPU can help.  

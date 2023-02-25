@@ -1,39 +1,9 @@
 [INFO]  [GE]: Change state to: "game". 
 [INFO]  [game]: Start init. 
-[INFO]  [DL]: Loading data groups: textures, globalStructured, animations, parents, gameObjects. 
+[INFO]  [DL]: Loading data groups: globalStructured, animations, textures, gameObjects, parents. 
 [INFO]  [DL]: Data group already loaded: globalStructured. 
 [INFO]  [DL]: Loading data group: textures. 
-[INFO]  [DLF]: Loading file: texturePacks/default/textures/player//head1.pic: table: 0x7f5f0438b4b0 
-[INFO]  [DLF]: Loading file: texturePacks/default/textures/player//arm2.pic: table: 0x7f5f04641c80 
-[INFO]  [DLF]: Loading file: texturePacks/default/textures/player//head2.pic: table: 0x7f5efc838380 
-[INFO]  [DLF]: Loading file: texturePacks/default/textures/player//hat.pic: table: 0x7f5efc6ae7a0 
-[INFO]  [DLF]: Loading file: texturePacks/default/textures/player//arm3.pic: table: 0x7f5ef0157710 
-[INFO]  [DLF]: Loading file: texturePacks/default/textures/player//body.pic: table: 0x7f5ef0fbc120 
-[INFO]  [DLF]: Loading file: texturePacks/default/textures/player//head3.pic: table: 0x7f5ef017ce20 
-[INFO]  [DLF]: Loading file: texturePacks/default/textures/player//arm1.pic: table: 0x7f5ef8b3e2b0 
-[INFO]  [DLF]: Loading file: texturePacks/default/textures/background.pic: table: 0x7f5ef8167960 
-[INFO]  [DLF]: Loading file: texturePacks/default/textures/arm1.pic: table: 0x7f5ef948cb80 
 [INFO]  [DL]: Loading data group: animations. 
-[INFO]  [DLF]: Loading file: texturePacks/default/animations/legs/: table: 0x7f5ef94cc940 
 [INFO]  [DL]: Loading data group: parents. 
-[INFO]  [DLF]: Loading file: data/parents/nge//UiContainer.lua: function: 0x7f5efd4c28b0 
-[INFO]  [DLF]: Loading file: data/parents/nge//ParticleContainer.lua: function: 0x7f5ef9514aa0 
-[INFO]  [DLF]: Loading file: data/parents/nge//Particle.lua: function: 0x7f5ef00c4720 
 [INFO]  [DL]: Loading data group: gameObjects. 
-[INFO]  [DLF]: Loading file: data/gameObjects/Player.lua: function: 0x7f5ef0221820 
-[INFO]  [DLF]: Loading file: data/gameObjects/Fire.lua: function: 0x7f5ef80dac20 
-[INFO]  [DLF]: Loading file: data/gameObjects/DefaultParticleContainer.lua: function: 0x7f5f04049410 
-[INFO]  [DLF]: Loading file: data/gameObjects/Player copy.lua: function: 0x7f5ef01dd480 
-[INFO]  [DLF]: Loading file: data/gameObjects/GameOverOverlay.lua: function: 0x7f5f043771e0 
-[INFO]  [DLF]: Loading file: data/gameObjects/Test2.lua: function: 0x7f5f040b3710 
-[INFO]  [DLF]: Loading file: data/gameObjects/Test3.lua: function: 0x7f5efc306b20 
-[INFO]  [DLF]: Loading file: data/gameObjects/BloodJet.lua: function: 0x7f5efc237680 
-[INFO]  [DLF]: Loading file: data/gameObjects/BloodContainer.lua: function: 0x7f5efc189370 
-[INFO]  [DLF]: Loading file: data/gameObjects/Test.lua: function: 0x7f5efc055130 
-[INFO]  [DLF]: Loading file: data/gameObjects/Background.lua: function: 0x7f5ef805b650 
-[INFO]  [DLF]: Loading file: data/gameObjects/particles//Smoke.lua: function: 0x7f5efc4bfe50 
-[INFO]  [DLF]: Loading file: data/gameObjects/particles//Blood.lua: function: 0x7f5ef00a8eb0 
-[INFO]  [DLF]: Loading file: data/gameObjects/particles//Dust.lua: function: 0x7f5ef013a050 
-[INFO]  [DLF]: Loading file: data/gameObjects/BackgroundTile.lua: function: 0x7f5ef009fca0 
-[INFO]  [DLF]: Loading file: data/gameObjects/Exhaust.lua: function: 0x7f5efc197190 
 [INFO]  true 

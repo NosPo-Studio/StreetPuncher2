@@ -57,13 +57,13 @@ local nosGaConf = {
 
 
 	--=== debug ===--	
-	showConsole = true, --can be changes ingame by pressing f1 by default.
-	showDebug = true, --can be changes ingame by pressing f3 by default.
+	showConsole = false, --can be changes ingame by pressing f1 by default.
+	showDebug = false, --can be changes ingame by pressing f3 by default.
 	consoleSizeY = 5, --the height of the console.
 	directConsoleDraw = false, --instant drawing console outputs instead of waiting til new frame (has only an affect if doubleBuffering used) (only if isDev).
 
 	debug = { --these options are for developers.
-		isDev = true, --activates debug outputs (strongly recommended if you want to mod the game in any way or something goes wrong and you need a detailed log).
+		isDev = false, --activates debug outputs (strongly recommended if you want to mod the game in any way or something goes wrong and you need a detailed log).
 		
 		dlDebug = true, --print dataLoading debug (only if isDev).
 		reDebug = false, --print renderEngine debug (only if isDev).

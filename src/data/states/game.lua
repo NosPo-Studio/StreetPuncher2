@@ -20,7 +20,7 @@
 local global = ...
 
 global.gameName = "StreetPuncher2"
-global.gameVersion = "v1.0"
+global.gameVersion = "v1.0.1"
 
 --===== shared vars =====--
 local game = {
@@ -233,9 +233,9 @@ function game.update()
 				if game.player1.life <= 0 and game.player2.life <= 0 then
 					game.winner = "No one"
 				elseif game.player1.life <= 0 then
-					game.winner = game.player1.name
-				elseif game.player2.life <= 0 then
 					game.winner = game.player2.name
+				elseif game.player2.life <= 0 then
+					game.winner = game.player1.name
 				end
 			end
 		end

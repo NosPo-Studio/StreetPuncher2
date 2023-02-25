@@ -16,12 +16,7 @@ player1 punch = S
 player2 left = J  
 player2 right = L  
 player2 punch = K  
-```
-
-# Performance
-The performance of StreetPuncher2 highly depents on the power of the CPU minecraft is running on.  
-So if the game runns at low FPS running minecraft on a server or client with stronger CPU can help.  
-But keep in mind that due to technical limitation of minecraft itself, FPS above 20 will not be visible.  
+``` 
 
 # System requirements
 OS: OpenOS  
@@ -40,6 +35,11 @@ Try to reboot the PC. If that does not help, try to run the program at a fresh O
 
 # Engine
 StreetPuncher2 is build ontop of the [NosGa Engine](https://github.com/NosPo-Studio/NosGa-Engine) so it come with all its benefits.
+
+# Performance
+The performance of StreetPuncher2 highly depents on the power of the CPU minecraft is running on.  
+So if the game runns at low FPS running minecraft on a server or client with stronger CPU can help.  
+But keep in mind that due to technical limitation of minecraft itself, FPS above 20 will not be visible. 
 
 # License
 StreetPuncher2 is licensed under the GPLv3.

@@ -1,9 +1,0 @@
-[INFO]  [GE]: Change state to: "game". 
-[INFO]  [game]: Start init. 
-[INFO]  [DL]: Loading data groups: gameObjects, globalStructured, animations, textures, parents. 
-[INFO]  [DL]: Data group already loaded: globalStructured. 
-[INFO]  [DL]: Loading data group: textures. 
-[INFO]  [DL]: Loading data group: animations. 
-[INFO]  [DL]: Loading data group: parents. 
-[INFO]  [DL]: Loading data group: gameObjects. 
-[INFO]  true 

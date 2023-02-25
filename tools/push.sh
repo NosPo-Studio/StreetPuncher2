@@ -2,6 +2,6 @@
 
 cp -r src.link/* ./src
 
-git add *
+git add .
 git commit -m "$@"
 git push

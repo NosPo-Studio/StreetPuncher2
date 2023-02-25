@@ -15,7 +15,7 @@ Disk storage: 1.8MB
 # Instalation
 If you have an internet card installed you can simply run this command line to install the game into the current dir: `wget https://raw.githubusercontent.com/NosPo-Studio/StreetPuncher2/main/StreetPuncher2-v1.0.1_installer.lua .streetpuncher2_installer.lua; ./.streetpuncher2_installer.lua StreetPuncher2; rm .streetpuncher2_installer.lua`.
 
-If you want to install it manually you can copy the `streetPuncher2-v1.0.1_installer.lua` onto your disc and execute it.
+If you want to install it manually you can copy the `StreetPuncher2-v1.0.1_installer.lua` onto your disc and execute it.
 
 # Potential issues
 ### Installer or game crashes

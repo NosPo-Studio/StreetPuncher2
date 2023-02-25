@@ -4,20 +4,24 @@ As the successor of [StreetPuncher](https://github.com/MisterNoNameLP/StreetPunc
 
 # Performance
 The performance of StreetPuncher2 highly depents on the power of the CPU minecraft is running on.  
-So if the game runns at low FPS running minecraft on a server or client with stringe CPU can help.  
+So if the game runns at low FPS running minecraft on a server or client with stronger CPU can help.  
 But keep in mind that due to technical limitation of minecraft itself, FPS above 20 will not be visible.  
 
 # System requirements
-Grapics cart: tier 3
-Memory: 8M
-Disk storage: 1.6M
+Grapics cart: tier 3  
+Memory: 8MB  
+Disk storage: 1.6MB
 
 # Instalation
 If you have an internet card installed you can simply run this command line to install the game into the current dir: `pastebin get Jurnjfjq .streetpuncher2_installer.lua; .streetpuncher2_installer.lua StreetPuncher2; rm .streetpuncher2_installer.lua`.
 
-If you want to install it manually you can copy the `streetPuncher2-v1.0_installer.lua` onto your disc and execute it.
+If you want to install it manually you can copy the `streetPuncher2-v1.0.1_installer.lua` onto your disc and execute it.
 
-# Techinic
+# Potential issues
+### Installer or game crashes
+Try to reboot the PC. If that does not help try to run the program at a fresh openOS install.
+
+# Engine
 StreetPuncher2 is build ontop of the [NosGa Engine](https://github.com/NosPo-Studio/NosGa-Engine) so it come with all its benefits.
 
 # License
